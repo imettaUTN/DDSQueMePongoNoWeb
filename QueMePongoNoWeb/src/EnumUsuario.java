@@ -1,6 +1,10 @@
+import lombok.*;
 
+@Getter
 public enum EnumUsuario {
-	Premium("Usuario Premium",1), Gratuito("Usuario Gratuito",2); 
+	
+	Premium("Usuario Premium",1), 
+	Gratuito("Usuario Gratuito",2); 
 	
 	private String descripcion;
 	private int idTipo;
@@ -8,14 +12,6 @@ public enum EnumUsuario {
 	private EnumUsuario (String descripcion, int idTipo){
 		this.idTipo = idTipo;
 		this.descripcion = descripcion;
-	}
-
-	public String getNombreDescripcion() {
-		return descripcion;
-	}
-
-	public int getTipo() {
-		return idTipo;
 	}
 
 }
