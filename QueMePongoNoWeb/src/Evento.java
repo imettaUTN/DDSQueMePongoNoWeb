@@ -17,8 +17,6 @@ public class Evento {
 	
 	public Sugerencia ProcesarEvento(Date fecha) {
 		
-		Sugerencia sugerencia = new Sugerencia();
-		
 		return sugerencia;
 		
 	}
