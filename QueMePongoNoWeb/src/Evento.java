@@ -15,6 +15,13 @@ public class Evento {
 	private int latitudEvento, longitudEvento;
 	private String paisEvento,ciudadEvento, provinciaEvento;
 	
+	public Sugerencia ProcesarEvento(Date fecha) {
+		
+		Sugerencia sugerencia = new Sugerencia();
+		return sugerencia;
+		
+	}
+	
 	
 	
 }
