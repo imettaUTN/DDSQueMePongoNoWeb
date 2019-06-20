@@ -12,7 +12,7 @@ public class Evento {
 	private EnumEstadoEvento estado;
 	private InvokerGestorEvento invoker;
 	private Usuario usuario;
-	private Guardaropa guardaropaAsociado;
+	private Guardarropa guardaropaAsociado;
 	private int latitudEvento, longitudEvento;
 	private String paisEvento,ciudadEvento, provinciaEvento;
 	

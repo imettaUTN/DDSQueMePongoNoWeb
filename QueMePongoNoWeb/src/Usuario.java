@@ -9,10 +9,10 @@ public class Usuario {
 	private String apellido;
 	private String password;
 	private EnumUsuario tipoUsuario;
-	private List<Guardaropa> guardarropas = new ArrayList<Guardaropa>();
+	private List<Guardarropa> guardarropas = new ArrayList<Guardarropa>();
 
 
-	public Guardaropa GetPrimerGuardaropa() {
+	public Guardarropa GetPrimerGuardaropa() {
 		return this.guardarropas.get(0);
 	}
 

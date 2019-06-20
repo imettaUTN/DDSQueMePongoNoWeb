@@ -5,7 +5,7 @@ import lombok.*;
 @Getter
 @Setter
 
-public class Guardaropa {
+public class Guardarropa {
 	
 	private List<Prenda> prendasDisponibles = new ArrayList<Prenda>();
 	private int maximoPrendas;
