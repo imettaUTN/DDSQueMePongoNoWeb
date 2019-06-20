@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.*;
 import lombok.*;
 
@@ -5,7 +6,7 @@ import lombok.*;
 @Setter
 public class Evento {
 	
-	private Date fechaEvento;
+	private LocalDate fechaEvento;
 	private int temperatura;
 	private Sugerencia sugerencia;
 	private EnumEstadoEvento estado;
