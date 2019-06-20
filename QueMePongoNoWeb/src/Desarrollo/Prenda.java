@@ -1,8 +1,7 @@
 package Desarrollo;
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 public class Prenda {
 
 	private String colorPrimario;
@@ -13,5 +12,5 @@ public class Prenda {
 	private int numeroCapa;
 	private String urlImagen;
 	private boolean disponibleParaSugerir;
-
+	
 }

@@ -3,9 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
 
-@Getter
-@Setter
-
+@Data
 public class Guardarropa {
 	
 	private List<Prenda> prendasDisponibles = new ArrayList<Prenda>();
@@ -15,9 +13,24 @@ public class Guardarropa {
 		
 	//Genera la sugerencia
 	public Sugerencia GenerarSugerencia(){
-			//List<Prenda> sugerencia = new ArrayList<Prenda>();
-			Sugerencia sugerencia = new Sugerencia();
-			return sugerencia;
+	
+		//List<Prenda> sugerencia = new ArrayList<Prenda>();
+		Sugerencia sugerencia = new Sugerencia();
+		
+		return sugerencia;
 	}
+	
+	public boolean agregarPrenda(Prenda prenda){
+		
+		if(maximoPrendas > 0) {
+			
+			this.prendasDisponibles.add(prenda);
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
 
 }
