@@ -13,4 +13,5 @@ public class Prenda {
 	private String urlImagen;
 	private boolean disponibleParaSugerir;
 	
+
 }

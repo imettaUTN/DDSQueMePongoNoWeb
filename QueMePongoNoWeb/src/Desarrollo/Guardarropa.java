@@ -31,6 +31,10 @@ public class Guardarropa {
 		return false;
 	}
 	
+	public int cantidadDePrendas() {
+		
+		return this.prendasDisponibles.size();
+	}
 	
 
 }
