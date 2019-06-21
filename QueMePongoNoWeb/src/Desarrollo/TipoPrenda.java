@@ -6,7 +6,8 @@ import lombok.*;
 public class TipoPrenda {
 	
 	private List<String> telasValidas = new ArrayList<String>();
-	private int nivelAbrigo ;
+	private int nivelAbrigo;
+	private String descripcion;
 	
 	public boolean IsTelaValida(String tela) {
 		return this.telasValidas.contains(tela);
