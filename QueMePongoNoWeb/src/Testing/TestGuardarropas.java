@@ -177,8 +177,9 @@ public class TestGuardarropas {
 	@Test
 	public void cantidadDeSugerencias(){
 		
+		sugerencias = guardarropa.algortimoDeRecomendacion();
 		
-		Assert.assertEquals(3, guardarropa.algortimoDeRecomendacion());
+		Assert.assertEquals(3, sugerencias.size());
 		
 	}
 	

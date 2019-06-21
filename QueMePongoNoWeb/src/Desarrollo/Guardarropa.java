@@ -44,8 +44,6 @@ public class Guardarropa {
 	public List<Sugerencia> algortimoDeRecomendacion(){
 		
 		List<Sugerencia> sugerencias = new ArrayList<Sugerencia>();
-		
-		int i=0, j=0, k=0, l=0, contador=0;
 		EnumEstadoSugerencia NUEVO = null;
 		
 		int cantidadParteSuperior =this.parteSuperior.size();
@@ -53,20 +51,19 @@ public class Guardarropa {
 		int cantidadCalzados =this.calzados.size();
 		int cantidadAccesorios =this.accesorios.size();
 		
-		for(i=0;i<cantidadParteSuperior;i++){
+		for(Prenda prendaSuperior:parteSuperior){
 			
-			for(j=0;i<cantidadParteInferior;j++){
+			for(Prenda prendaInferior:parteInferior){
 				
-				for(k=0;i<cantidadCalzados;k++){
+				for(Prenda calzado:calzados){
 					
-					for(l=0;i<cantidadAccesorios;l++){
+					for(Prenda accesorio:accesorios){
 						
 						Sugerencia sugerencia = new Sugerencia();
-						
-						sugerencia.agregarPrenda(this.parteSuperior.get(i));
-						sugerencia.agregarPrenda(this.parteInferior.get(j));
-						sugerencia.agregarPrenda(this.calzados.get(k));
-						sugerencia.agregarPrenda(this.accesorios.get(l));
+						sugerencia.agregarPrenda(prendaSuperior);
+						sugerencia.agregarPrenda(prendaInferior);
+						sugerencia.agregarPrenda(calzado);
+						sugerencia.agregarPrenda(accesorio);
 						
 						sugerencia.setEstado(NUEVO);
 						
