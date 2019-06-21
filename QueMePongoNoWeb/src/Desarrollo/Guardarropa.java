@@ -46,11 +46,6 @@ public class Guardarropa {
 		List<Sugerencia> sugerencias = new ArrayList<Sugerencia>();
 		EnumEstadoSugerencia NUEVO = null;
 		
-		int cantidadParteSuperior =this.parteSuperior.size();
-		int cantidadParteInferior =this.parteInferior.size();
-		int cantidadCalzados =this.calzados.size();
-		int cantidadAccesorios =this.accesorios.size();
-		
 		for(Prenda prendaSuperior:parteSuperior){
 			
 			for(Prenda prendaInferior:parteInferior){
