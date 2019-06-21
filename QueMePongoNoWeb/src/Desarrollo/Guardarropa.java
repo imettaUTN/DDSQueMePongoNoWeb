@@ -19,9 +19,13 @@ public class Guardarropa {
 	public Sugerencia GenerarSugerencia(int temperatura){
 	
 		EnumEstadoSugerencia NUEVO = null;
+		EnumEstadoEvento ENPROCESO = null;
 		Sugerencia sugerencia = new Sugerencia();
+		
 		sugerencia.setEstado(NUEVO);
-		return sugerencia;
+		
+		return sugerencia; 
+		
 	}
 	
 	public boolean agregarPrenda(Prenda prenda){
@@ -71,10 +75,10 @@ public class Guardarropa {
 					for(Prenda accesorio:accesorios){
 						
 						Sugerencia sugerencia = new Sugerencia();
-						sugerencia.agregarPrenda(prendaSuperior);
-						sugerencia.agregarPrenda(prendaInferior);
-						sugerencia.agregarPrenda(calzado);
-						sugerencia.agregarPrenda(accesorio);
+						sugerencia.agregarPrendaSeleccionada(prendaSuperior);
+						sugerencia.agregarPrendaSeleccionada(prendaInferior);
+						sugerencia.agregarPrendaSeleccionada(calzado);
+						sugerencia.agregarPrendaSeleccionada(accesorio);
 						sugerencias.add(sugerencia);
 					}
 				}
