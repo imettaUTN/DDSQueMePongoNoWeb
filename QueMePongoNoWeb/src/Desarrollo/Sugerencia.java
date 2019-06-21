@@ -25,4 +25,20 @@ public class Sugerencia {
 		System.out.print("\n ==== Fin Sugerencia ==== \n\n");
 	}
 
+	public List<Prenda> getSugerencia() {
+		return sugerencia;
+	}
+
+	public EnumEstadoSugerencia getEstado() {
+		return estado;
+	}
+
+	public void setSugerencia(List<Prenda> sugerencia) {
+		this.sugerencia = sugerencia;
+	}
+
+	public void setEstado(EnumEstadoSugerencia estado) {
+		this.estado = estado;
+	}
+
 }

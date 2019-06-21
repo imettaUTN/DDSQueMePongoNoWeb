@@ -9,6 +9,26 @@ public class TipoPrenda {
 	private int nivelAbrigo;
 	private String descripcion;
 	
+	public void AddTelaValida(String tela) {
+		
+		this.telasValidas.add(tela);
+	}
+	public int getNivelAbrigo() {
+		return nivelAbrigo;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setNivelAbrigo(int nivelAbrigo) {
+		this.nivelAbrigo = nivelAbrigo;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
 	public boolean IsTelaValida(String tela) {
 		return this.telasValidas.contains(tela);
 	}

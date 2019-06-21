@@ -5,6 +5,70 @@ import lombok.*;
 public class Prenda {
 
 	private String colorPrimario;
+	public String getColorPrimario() {
+		return colorPrimario;
+	}
+
+	public String getColorSecundario() {
+		return colorSecundario;
+	}
+
+	public TipoPrenda getTipoPrenda() {
+		return tipoPrenda;
+	}
+
+	public String getTela() {
+		return tela;
+	}
+
+	public EnumCategoria getCategoria() {
+		return categoria;
+	}
+
+	public int getNumeroCapa() {
+		return numeroCapa;
+	}
+
+	public String getUrlImagen() {
+		return urlImagen;
+	}
+
+	public boolean isDisponibleParaSugerir() {
+		return disponibleParaSugerir;
+	}
+
+	public void setColorPrimario(String colorPrimario) {
+		this.colorPrimario = colorPrimario;
+	}
+
+	public void setColorSecundario(String colorSecundario) {
+		this.colorSecundario = colorSecundario;
+	}
+
+	public void setTipoPrenda(TipoPrenda tipoPrenda) {
+		this.tipoPrenda = tipoPrenda;
+	}
+
+	public void setTela(String tela) {
+		this.tela = tela;
+	}
+
+	public void setCategoria(EnumCategoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public void setNumeroCapa(int numeroCapa) {
+		this.numeroCapa = numeroCapa;
+	}
+
+	public void setUrlImagen(String urlImagen) {
+		this.urlImagen = urlImagen;
+	}
+
+	public void setDisponibleParaSugerir(boolean disponibleParaSugerir) {
+		this.disponibleParaSugerir = disponibleParaSugerir;
+	}
+
 	private String colorSecundario;
 	private TipoPrenda tipoPrenda;
 	private String tela;

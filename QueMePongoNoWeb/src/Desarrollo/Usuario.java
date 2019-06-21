@@ -51,5 +51,45 @@ public class Usuario {
 		EnumEstadoSugerencia RECHAZADA = null;
 		sugerencia.setEstado(RECHAZADA);
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public EnumUsuario getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public List<Guardarropa> getGuardarropas() {
+		return guardarropas;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setTipoUsuario(EnumUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+
+	public void setGuardarropas(List<Guardarropa> guardarropas) {
+		this.guardarropas = guardarropas;
+	}
 	
 }

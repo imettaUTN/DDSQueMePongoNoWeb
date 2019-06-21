@@ -87,5 +87,69 @@ public class Guardarropa {
 		
 		return sugerencias;
 	}
+
+	public List<Prenda> getPrendasDisponibles() {
+		return prendasDisponibles;
+	}
+
+	public int getMaximoPrendas() {
+		return maximoPrendas;
+	}
+
+	public boolean isGuardarropasCompartido() {
+		return guardarropasCompartido;
+	}
+
+	public List<Usuario> getUsuariosCompartiendo() {
+		return usuariosCompartiendo;
+	}
+
+	public List<Prenda> getParteSuperior() {
+		return parteSuperior;
+	}
+
+	public List<Prenda> getParteInferior() {
+		return parteInferior;
+	}
+
+	public List<Prenda> getAccesorios() {
+		return accesorios;
+	}
+
+	public List<Prenda> getCalzados() {
+		return calzados;
+	}
+
+	public void setPrendasDisponibles(List<Prenda> prendasDisponibles) {
+		this.prendasDisponibles = prendasDisponibles;
+	}
+
+	public void setMaximoPrendas(int maximoPrendas) {
+		this.maximoPrendas = maximoPrendas;
+	}
+
+	public void setGuardarropasCompartido(boolean guardarropasCompartido) {
+		this.guardarropasCompartido = guardarropasCompartido;
+	}
+
+	public void setUsuariosCompartiendo(List<Usuario> usuariosCompartiendo) {
+		this.usuariosCompartiendo = usuariosCompartiendo;
+	}
+
+	public void setParteSuperior(List<Prenda> parteSuperior) {
+		this.parteSuperior = parteSuperior;
+	}
+
+	public void setParteInferior(List<Prenda> parteInferior) {
+		this.parteInferior = parteInferior;
+	}
+
+	public void setAccesorios(List<Prenda> accesorios) {
+		this.accesorios = accesorios;
+	}
+
+	public void setCalzados(List<Prenda> calzados) {
+		this.calzados = calzados;
+	}
 	
 }
