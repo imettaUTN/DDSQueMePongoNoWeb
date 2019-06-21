@@ -26,16 +26,16 @@ public class Sugerencia {
 		this.sugerencia.add(prenda);
 	}
 	
-	public void visualizarSugerencia(){
+	public void visualizarSugerencia(int posicion){
 		
-		System.out.print("==== Inicio Sugerencia ====");
+		System.out.print("==== Inicio Sugerencia: " + posicion + " ==== \n\n");
 		
 			for(Prenda prenda:sugerencia){
 				
 				prenda.visualizar();
 			}
 		
-		System.out.print("==== Fin Sugerencia ====");
+		System.out.print("\n ==== Fin Sugerencia ==== \n\n");
 	}
 
 }

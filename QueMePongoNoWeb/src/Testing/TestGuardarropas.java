@@ -21,6 +21,7 @@ public class TestGuardarropas {
 	private Prenda prendaCuatro = new Prenda();
 	private Prenda prendaCinco = new Prenda();
 	private Prenda prendaSeis = new Prenda();
+	private Prenda prendaSiete = new Prenda();
 	
 	List<Sugerencia> sugerencias = new ArrayList<Sugerencia>();
 
@@ -113,6 +114,17 @@ public class TestGuardarropas {
 		prendaCinco.setDisponibleParaSugerir(true);
 		prendaCinco.setUrlImagen("");
 		
+		// Prenda Zapatilla Dos
+		
+		prendaSiete.setColorPrimario("Verde");
+		prendaSiete.setColorSecundario("Azul");
+		prendaSiete.setTipoPrenda(zapatilla);
+		
+		prendaSiete.setCategoria(Calzado);
+		prendaSiete.setNumeroCapa(2);
+		prendaSiete.setDisponibleParaSugerir(true);
+		prendaSiete.setUrlImagen("Ejemplo");
+		
 		// Prenda Lentes Uno
 		
 		prendaSeis.setColorPrimario("Gris");
@@ -124,6 +136,7 @@ public class TestGuardarropas {
 		prendaSeis.setDisponibleParaSugerir(true);
 		prendaSeis.setUrlImagen("");
 		
+		
 		//Guardarropa
 		guardarropa.setMaximoPrendas(10);
 		guardarropa.setGuardarropasCompartido(false);
@@ -133,6 +146,8 @@ public class TestGuardarropas {
 		guardarropa.getParteInferior().add(prendaCuatro);
 		guardarropa.getCalzados().add(prendaCinco);
 		guardarropa.getAccesorios().add(prendaSeis);
+		guardarropa.getCalzados().add(prendaSiete);
+		
 		
 	}
 	
@@ -161,7 +176,7 @@ public class TestGuardarropas {
 	@Test
 	public void cantidadDeCalzados(){
 		
-		Assert.assertEquals(1, guardarropa.getCalzados().size());
+		Assert.assertEquals(2, guardarropa.getCalzados().size());
 		
 	} 
 	
@@ -179,7 +194,7 @@ public class TestGuardarropas {
 		
 		sugerencias = guardarropa.algortimoDeRecomendacion();
 		
-		Assert.assertEquals(3, sugerencias.size());
+		Assert.assertEquals(6, sugerencias.size());
 		
 	}
 	

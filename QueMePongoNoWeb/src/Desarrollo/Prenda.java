@@ -23,7 +23,7 @@ public class Prenda {
 	
 	public void visualizar(){
 		
-		System.out.print("Color Primario: " + colorPrimario + " - Color Secundario: " + colorSecundario + "Prenda: " + tipoPrenda.getDescripcion());
+		System.out.print(" Prenda: " + tipoPrenda.getDescripcion() + " - Color Primario: " + colorPrimario + " - Color Secundario: " + colorSecundario + "\n");
 		
 	}
 }
