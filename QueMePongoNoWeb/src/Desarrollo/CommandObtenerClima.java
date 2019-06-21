@@ -6,7 +6,7 @@ public class CommandObtenerClima implements IComand {
 	public void Execute(Evento evento) {
 		
 		ProxyApiClima proxy = new ProxyApiClima();
-		int temperatura = proxy.GetTemperatura(evento.getFechaEvento(),evento.getUbicacion());
+		float temperatura = proxy.ObtenerTemperatura(evento.getFechaEvento(),evento.getUbicacion());
 	}
 
 }

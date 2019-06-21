@@ -65,7 +65,7 @@ public class ProxyApiClima {
 			return 3;
 		}
 	
-	public int GetTemperatura(LocalDate fecha, UbicacionEvento ubicacion) {
+	public float ObtenerTemperatura(LocalDate fecha, UbicacionEvento ubicacion) {
 	/*Este metodo devuelve un temperatura  dentro de un rango de fecha. Se parte de la premisa que 
 	la ubicacion geofrafica corresponde corresponde a la provincia de buenos aires 
 	*/
