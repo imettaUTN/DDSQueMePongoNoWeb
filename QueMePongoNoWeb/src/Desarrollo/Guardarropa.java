@@ -16,12 +16,11 @@ public class Guardarropa {
 	private List<Prenda> accesorios = new ArrayList<Prenda>();
 	private List<Prenda> calzados = new ArrayList<Prenda>();
 		
-	//Genera la sugerencia
-	public Sugerencia GenerarSugerencia(){
+	public Sugerencia GenerarSugerencia(int temperatura){
 	
-		//List<Prenda> sugerencia = new ArrayList<Prenda>();
+		EnumEstadoSugerencia NUEVO = null;
 		Sugerencia sugerencia = new Sugerencia();
-		
+		sugerencia.setEstado(NUEVO);
 		return sugerencia;
 	}
 	
@@ -29,7 +28,25 @@ public class Guardarropa {
 		
 		if(maximoPrendas > 0) {
 			
-			this.prendasDisponibles.add(prenda);
+			switch(prenda.getCategoria()){
+			
+				case Superior:
+					
+					this.parteSuperior.add(prenda);
+					
+				case Inferior:
+					
+					this.parteInferior.add(prenda);
+					
+				case Calzado:
+					
+					this.calzados.add(prenda);
+					
+				case Accesorio:	
+					
+					this.calzados.add(prenda);
+			}
+			
 			return true;
 		}
 		
@@ -44,7 +61,6 @@ public class Guardarropa {
 	public List<Sugerencia> algortimoDeRecomendacion(){
 		
 		List<Sugerencia> sugerencias = new ArrayList<Sugerencia>();
-		EnumEstadoSugerencia NUEVO = null;
 		
 		for(Prenda prendaSuperior:parteSuperior){
 			
@@ -59,9 +75,6 @@ public class Guardarropa {
 						sugerencia.agregarPrenda(prendaInferior);
 						sugerencia.agregarPrenda(calzado);
 						sugerencia.agregarPrenda(accesorio);
-						
-						sugerencia.setEstado(NUEVO);
-						
 						sugerencias.add(sugerencia);
 					}
 				}

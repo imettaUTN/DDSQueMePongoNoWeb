@@ -12,11 +12,6 @@ public class Usuario {
 	private EnumUsuario tipoUsuario;
 	private List<Guardarropa> guardarropas = new ArrayList<Guardarropa>();
 	
-	public Guardarropa GetPrimerGuardaropa() {
-		
-		return this.guardarropas.get(0);
-	}
-	
 	public int cantidadDeGuardarropas() {
 		
 		return this.guardarropas.size();
@@ -28,6 +23,11 @@ public class Usuario {
 		this.guardarropas.add(guardarropa);
 	}
 	
+	public void eliminarGuardarropa(int guardarropa){
+		
+		this.guardarropas.remove(guardarropa);
+		
+	}
 	public void cargarEvento(LocalDate fecha, UbicacionEvento ubicacion){
 		
 		Evento evento = new Evento();
@@ -38,6 +38,18 @@ public class Usuario {
 		
 		this.getGuardarropas().get(guardarropa).agregarPrenda(prenda);
 		
+	}
+	
+	public void aceptarSugerencia(Sugerencia sugerencia){
+		
+		EnumEstadoSugerencia ACEPTADA = null;
+		sugerencia.setEstado(ACEPTADA);
+	}
+	
+	public void rechazarSugerencia(Sugerencia sugerencia){
+		
+		EnumEstadoSugerencia RECHAZADA = null;
+		sugerencia.setEstado(RECHAZADA);
 	}
 	
 }

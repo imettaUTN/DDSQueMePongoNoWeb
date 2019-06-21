@@ -4,9 +4,11 @@ public class CommandObtenerSugerencia implements IComand {
 
 	@Override
 	public void Execute(Evento evento) {
-	Guardarropa guardaropaAsociado = evento.getGuardaropaAsociado();
+	
+		int temperatura = 0;
 		
-    evento.setSugerencia(guardaropaAsociado.GenerarSugerencia());
+		Guardarropa guardaropaAsociado = evento.getGuardaropaAsociado();
+		evento.setSugerencia(guardaropaAsociado.GenerarSugerencia(temperatura));
 	}
 
 }

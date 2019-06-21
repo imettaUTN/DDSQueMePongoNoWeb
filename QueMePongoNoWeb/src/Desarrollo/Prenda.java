@@ -13,14 +13,6 @@ public class Prenda {
 	private String urlImagen;
 	private boolean disponibleParaSugerir;
 	
-	public boolean esCategoria(EnumCategoria categoria){
-		
-		if(this.categoria == categoria)
-			return true;
-		
-		return false;
-	}
-	
 	public void visualizar(){
 		
 		System.out.print(" Prenda: " + tipoPrenda.getDescripcion() + " - Color Primario: " + colorPrimario + " - Color Secundario: " + colorSecundario + "\n");
