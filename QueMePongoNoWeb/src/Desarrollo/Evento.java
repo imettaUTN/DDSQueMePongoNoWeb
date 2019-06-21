@@ -3,10 +3,10 @@ import java.time.LocalDate;
 import java.util.*;
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 public class Evento {
 	
+	private LocalDate fechaAlta;
 	private LocalDate fechaEvento;
 	private int temperatura;
 	private Sugerencia sugerencia;
@@ -14,8 +14,8 @@ public class Evento {
 	private InvokerGestorEvento invoker;
 	private Usuario usuario;
 	private Guardarropa guardaropaAsociado;
-	private int latitudEvento, longitudEvento;
-	private String paisEvento,ciudadEvento, provinciaEvento;
+	private UbicacionEvento ubicacion;
+	
 	
 	public Sugerencia ProcesarEvento(Date fecha) {
 		
@@ -23,6 +23,18 @@ public class Evento {
 		
 	}
 	
-	
+	public void nuevoEvento(LocalDate fechaEvento, Usuario usuario, UbicacionEvento ubicacion){
+		
+			EnumEstadoEvento NUEVO = null;
+			
+			this.fechaEvento = fechaEvento;
+			this.usuario = usuario;
+			this.ubicacion = ubicacion;
+			
+			this.fechaAlta = LocalDate.now();
+			this.setTemperatura(0);
+			this.estado = NUEVO;
+			this.guardaropaAsociado = null;
+	}
 	
 }

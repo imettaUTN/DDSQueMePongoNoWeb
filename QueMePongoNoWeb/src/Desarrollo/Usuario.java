@@ -1,4 +1,5 @@
 package Desarrollo;
+import java.time.LocalDate;
 import java.util.*;
 import lombok.*;
 
@@ -27,7 +28,16 @@ public class Usuario {
 		this.guardarropas.add(guardarropa);
 	}
 	
+	public void cargarEvento(LocalDate fecha, UbicacionEvento ubicacion){
+		
+		Evento evento = new Evento();
+		evento.nuevoEvento(fecha,this, ubicacion);
+	}
 	
-	
+	public void agregarPrendaAGuardarropa(Prenda prenda, int guardarropa){
+		
+		this.getGuardarropas().get(guardarropa).agregarPrenda(prenda);
+		
+	}
 	
 }

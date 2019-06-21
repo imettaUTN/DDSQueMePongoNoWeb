@@ -65,10 +65,11 @@ public class ProxyApiClima {
 			return 3;
 		}
 	
-	public int GetTemperatura(LocalDate fecha, int longitud, int latitud, String ciudad, String pais, String provincia) {
+	public int GetTemperatura(LocalDate fecha, UbicacionEvento ubicacion) {
 	/*Este metodo devuelve un temperatura  dentro de un rango de fecha. Se parte de la premisa que 
 	la ubicacion geofrafica corresponde corresponde a la provincia de buenos aires 
 	*/
+
 		return this.getTemperaturaParaEstacion(this.getEstacion(fecha)) ;
 	}	
 
