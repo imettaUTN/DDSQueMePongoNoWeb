@@ -12,8 +12,42 @@ public class Usuario {
 	private String password;
 	private EnumUsuario tipoUsuario;
 	private List<Guardarropa> guardarropas = new ArrayList<Guardarropa>();
+	private List<Evento> eventos = new ArrayList<Evento>();
 	
-	public int cantidadDeGuardarropas() {
+	public void CargarEvento(LocalDate fecha, UbicacionEvento ubicacion) throws Exception{
+		
+		Evento evento = new Evento();
+		evento.nuevoEvento(fecha,this, ubicacion);
+		evento.ProcesarEvento();
+	}
+	
+	
+	public void agregarPrendaAGuardarropa(Prenda prenda, int guardarropa){
+		
+		this.getGuardarropas().get(guardarropa).agregarPrenda(prenda);
+		
+	}
+	
+	public void aceptarSugerencia(Sugerencia sugerencia, Evento evento){
+		
+		for(Sugerencia sg : evento.getSugerencias()) {
+			if(sg.getIdSugerencia() != sugerencia.getIdSugerencia()) {
+				sugerencia.RechazarSugerencia();
+			}
+			else {
+				sugerencia.AceptarSugerencia();
+				evento.setSugerenciaSeleccionada(sugerencia);
+			}
+		}
+		
+	}
+	
+	public void rechazarSugerencia(Sugerencia sugerencia){
+		
+		sugerencia.RechazarSugerencia();
+	}
+	
+   public int cantidadDeGuardarropas() {
 		
 		return this.guardarropas.size();
 		
@@ -28,30 +62,6 @@ public class Usuario {
 		
 		this.guardarropas.remove(guardarropa);
 		
-	}
-	public void cargarEvento(LocalDate fecha, UbicacionEvento ubicacion){
-		
-		Evento evento = new Evento();
-		evento.nuevoEvento(fecha,this, ubicacion);
-	}
-	public void ProcesarEvento(Evento evento) throws IOException {
-		InvokerGestorEvento invoke = new InvokerGestorEvento();
-		invoke.SettearSugerencia(evento);
-	}
-	
-	public void agregarPrendaAGuardarropa(Prenda prenda, int guardarropa){
-		
-		this.getGuardarropas().get(guardarropa).agregarPrenda(prenda);
-		
-	}
-	
-	public void aceptarSugerencia(Sugerencia sugerencia){
-		sugerencia.AceptarSugerencia();
-	}
-	
-	public void rechazarSugerencia(Sugerencia sugerencia){
-		
-		sugerencia.RechazarSugerencia();
 	}
 
 	public String getNombre() {

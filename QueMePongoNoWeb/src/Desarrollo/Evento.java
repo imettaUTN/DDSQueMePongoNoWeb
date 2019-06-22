@@ -11,11 +11,21 @@ public class Evento {
 	private LocalDate fechaEvento;
 	private int temperaturaMinima;
 	private int temperaturaMaxima;
-	private Sugerencia sugerencia;
+	private Sugerencia sugerenciaSeleccionada;
+	private List<Sugerencia> sugerencias = new ArrayList<Sugerencia>();
+	private ServidorColaDeEventos servidorCola;
 	private EnumEstadoEvento estado;
 	private InvokerGestorEvento invoker;
 	private Usuario usuario;
 	private Guardarropa guardaropaAsociado;
+	public ServidorColaDeEventos getServidorCola() {
+		return servidorCola;
+	}
+
+	public void setServidorCola(ServidorColaDeEventos servidorCola) {
+		this.servidorCola = servidorCola;
+	}
+
 	private UbicacionEvento ubicacion;
 	
 	
@@ -28,8 +38,8 @@ public class Evento {
 	}
 
 
-	public Sugerencia getSugerencia() {
-		return sugerencia;
+	public Sugerencia getSugerenciaSeleccionada() {
+		return sugerenciaSeleccionada;
 	}
 
 	public EnumEstadoEvento getEstado() {
@@ -57,9 +67,10 @@ public class Evento {
 		this.fechaEvento = fechaEvento;
 	}
 
+	
 
-	public void setSugerencia(Sugerencia sugerencia) {
-		this.sugerencia = sugerencia;
+	public void setSugerenciaSeleccionada(Sugerencia sugerencia) {
+		this.sugerenciaSeleccionada = sugerencia;
 	}
 
 	public void setEstado(EnumEstadoEvento estado) {
@@ -79,9 +90,9 @@ public class Evento {
 		this.ubicacion = ubicacion;
 	}
 
-	public void ProcesarEvento(Date fecha) throws IOException {
+	public void ProcesarEvento() throws IOException {
 		
-		 this.getInvoker().SettearSugerencia(this);
+		 this.servidorCola.EncolarNuevoEvento(this);
 		
 	}
 	
@@ -104,6 +115,14 @@ public class Evento {
 
 	public int getTemperaturaMinima() {
 		return temperaturaMinima;
+	}
+
+	public List<Sugerencia> getSugerencias() {
+		return sugerencias;
+	}
+
+	public void setSugerencias(List<Sugerencia> sugerencias) {
+		this.sugerencias = sugerencias;
 	}
 
 	public void setTemperaturaMinima(int temperaturaMinima) {

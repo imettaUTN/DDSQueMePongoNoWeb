@@ -4,14 +4,14 @@ import lombok.*;
 @Getter
 public enum EnumUsuario {
 	
-	Premium("Usuario Premium",1), 
-	Gratuito("Usuario Gratuito",2); 
+	Premium("Usuario Premium",200), 
+	Gratuito("Usuario Gratuito",50); 
 	
 	private String descripcion;
-	private int idTipo;
+	private int CantidadMaximaPrenda;
 	
-	private EnumUsuario (String descripcion, int idTipo){
-		this.idTipo = idTipo;
+	private EnumUsuario (String descripcion, int CantidadMaximaPrenda){
+		this.CantidadMaximaPrenda = CantidadMaximaPrenda;
 		this.descripcion = descripcion;
 	}
 

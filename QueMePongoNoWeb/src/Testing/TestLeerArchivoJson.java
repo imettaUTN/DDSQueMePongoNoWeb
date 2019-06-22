@@ -26,8 +26,9 @@ public class TestLeerArchivoJson {
 	}
 	
 	
-	public static List<Prenda> JsonToPrendas(String path) throws IOException {
+	public static List<Prenda> JsonToPrendas() throws IOException {
 		
+		String path = "/Testing.ArchivoPrueba/JsonPrendas.json";
 		String json1 = readFile(path);
 		JsonParser parser = new JsonParser();
 		List<Prenda> prendas = new ArrayList<Prenda>();
@@ -62,8 +63,9 @@ public class TestLeerArchivoJson {
 return prendas;
 	}
 	
-public static List<Parametros> JsonToParametros(String path) throws IOException {
-		
+public static List<Parametros> JsonToParametros() throws IOException {
+
+	String path = "/Testing.ArchivoPrueba/JsonPrendas.json";
 		String json1 = readFile(path);
 		JsonParser parser = new JsonParser();
 		List<Parametros> parametros = new ArrayList<Parametros>();
@@ -87,7 +89,8 @@ return parametros;
 	}
 
 //  devuelve los proximos 7 dias a futuro, contando desde hoy 0 hoy
-public static Clima[] JsonGetTemperatura(String path, int latitud, int longitud) throws IOException{
+public static Clima[] JsonGetTemperatura( int latitud, int longitud) throws IOException{
+	String path = "/Testing.ArchivoPrueba/JsonPrendas.json";
 	// Devuelve  datos dammy para una latitud y una longitud
 	String json1 = readFile(path);
 	JsonParser parser = new JsonParser();

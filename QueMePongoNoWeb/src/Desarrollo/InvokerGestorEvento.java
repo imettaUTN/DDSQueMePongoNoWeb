@@ -13,7 +13,7 @@ public void setComand(IComand comand) {
 	this.comand = comand;
 }
 
-public void SettearSugerencia(Evento evento) throws IOException {
+public void ProcesarEvento(Evento evento) throws IOException {
 	CommandObtenerClima clima = new CommandObtenerClima();
 	clima.Execute(evento);
 	CommandObtenerSugerencia sugerencia = new CommandObtenerSugerencia();

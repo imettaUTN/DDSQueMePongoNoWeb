@@ -10,7 +10,7 @@ public class main {
 
 	public static void main(String[] args) throws IOException {
 	
-		 Guardarropa guardarropa = new Guardarropa();
+		/* Guardarropa guardarropa = new Guardarropa();
 		
 		 TipoPrenda remera = new TipoPrenda();
 		 remera.setDescripcion("Remera de Verano");
@@ -129,7 +129,6 @@ public class main {
 			
 			prendaSiete.setCategoria(Calzado);
 			prendaSiete.setNumeroCapa(2);
-			prendaSiete.setDisponibleParaSugerir(true);
 			prendaSiete.setUrlImagen("Ejemplo");
 			
 			// Prenda Lentes Uno
@@ -140,7 +139,6 @@ public class main {
 			
 			prendaSeis.setCategoria(Accesorio);
 			prendaSeis.setNumeroCapa(2);
-			prendaSeis.setDisponibleParaSugerir(true);
 			prendaSeis.setUrlImagen("");
 			
 			
@@ -164,7 +162,7 @@ public class main {
 					sugerencia.visualizarSugerencia(contador);
 			}
 			
-
+*/
 		}
 
 }

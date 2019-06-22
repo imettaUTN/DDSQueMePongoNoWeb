@@ -9,7 +9,7 @@ public class CommandObtenerSugerencia implements IComand {
 	
 				
 		Guardarropa guardaropaAsociado = evento.getGuardaropaAsociado();
-		evento.setSugerencia(guardaropaAsociado.GenerarSugerencia(evento.getTemperaturaMinima(), evento.getTemperaturaMaxima()).get(0));
+		evento.setSugerencias(guardaropaAsociado.GenerarSugerencia(evento.getTemperaturaMinima(), evento.getTemperaturaMaxima()));
 		
 		evento.setEstado(EnumEstadoEvento.ENPROCESO);
 	}

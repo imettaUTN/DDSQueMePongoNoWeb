@@ -5,6 +5,14 @@ import lombok.*;
 public class Prenda {
 
 	private String colorPrimario;
+	private String colorSecundario;
+	private TipoPrenda tipoPrenda;
+	private String tela;
+	private EnumCategoria categoria;
+	private int numeroCapa;
+	private String urlImagen;
+	private boolean disponibleParaSugerir = true;
+	
 	public String getColorPrimario() {
 		return colorPrimario;
 	}
@@ -64,18 +72,13 @@ public class Prenda {
 	public void setUrlImagen(String urlImagen) {
 		this.urlImagen = urlImagen;
 	}
-
-	public void setDisponibleParaSugerir(boolean disponibleParaSugerir) {
-		this.disponibleParaSugerir = disponibleParaSugerir;
+	public void SetDisponibleParaSugerir() {
+		this.disponibleParaSugerir = true;
 	}
 
-	private String colorSecundario;
-	private TipoPrenda tipoPrenda;
-	private String tela;
-	private EnumCategoria categoria;
-	private int numeroCapa;
-	private String urlImagen;
-	private boolean disponibleParaSugerir;
+	public void BoquearPrenda() {
+		this.disponibleParaSugerir = false;
+	}
 	
 	public void visualizar(){
 		

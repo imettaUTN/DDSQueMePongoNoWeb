@@ -7,6 +7,15 @@ public class Sugerencia {
 	
 	private List<Prenda> sugerencia = new ArrayList<Prenda>();
 	private EnumEstadoSugerencia estado;
+    private int idSugerencia ;
+	
+	public int getIdSugerencia() {
+		return idSugerencia;
+	}
+
+	public void setIdSugerencia(int idSugerencia) {
+		this.idSugerencia = idSugerencia;
+	}
 
 	public void agregarPrendaSeleccionada(Prenda prenda){
 		
@@ -42,8 +51,15 @@ public class Sugerencia {
 	}
 	public void AceptarSugerencia() {
 		this.setEstado(EnumEstadoSugerencia.ACEPTADA);
+		for(Prenda p : this.getSugerencia()) {
+			p.BoquearPrenda();
+		}
+		
 	}
 	public void RechazarSugerencia() {
 		this.setEstado(EnumEstadoSugerencia.RECHAZADA);
+		for(Prenda p : this.getSugerencia()) {
+			p.SetDisponibleParaSugerir();
+		}
 	}
 }

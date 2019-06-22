@@ -13,7 +13,7 @@ public class ProxyApiClima {
 	la ubicacion geofrafica corresponde corresponde a la provincia de buenos aires 
 	*/
 		
-		Clima temperaturas[] = Testing.TestLeerArchivoJson.JsonGetTemperatura("", ubicacion.getLatitudEvento(),ubicacion.getLongitudEvento());
+		Clima temperaturas[] = Testing.TestLeerArchivoJson.JsonGetTemperatura( ubicacion.getLatitudEvento(),ubicacion.getLongitudEvento());
    
 		 return temperaturas[0];
 	}	

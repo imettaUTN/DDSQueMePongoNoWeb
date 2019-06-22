@@ -20,7 +20,7 @@ public class Guardarropa {
 		
 	public List<Sugerencia> GenerarSugerencia(int temperaturaMinima, int temperaturaMaxima) throws IOException{
 			
-		return algortimoDeRecomendacion(); 
+		return algortimoDeRecomendacion(temperaturaMinima,temperaturaMaxima); 
 		
 	}
 	
@@ -60,19 +60,19 @@ public class Guardarropa {
 		return this.prendasDisponibles.size();
 	}
 	
-	public List<Sugerencia> algortimoDeRecomendacion() throws IOException{
+	public List<Sugerencia> algortimoDeRecomendacion(int temperaturaMaxima, int temperaturaMinima) throws IOException{
 		
 		List<Sugerencia> sugerencias = new ArrayList<Sugerencia>();
 		for(Prenda prendaSuperior:parteSuperior){
 			if(nivelesALlenar == 0) {
-			nivelesALlenar = GetNivelAbrigoByCategoria(EnumCategoria.Superior);}
+			nivelesALlenar = GetNivelAbrigoByCategoria(EnumCategoria.Superior,temperaturaMinima,temperaturaMaxima);}
 			Sugerencia sugerencia = new Sugerencia();
 			sugerencia.agregarPrendaSeleccionada(prendaSuperior);
 			nivelesALlenar --;
 			if(nivelesALlenar <= 0) {
 				for(Prenda prendaInferior:parteInferior){
 					if(nivelesALlenar == 0) {
-						nivelesALlenar = GetNivelAbrigoByCategoria(EnumCategoria.Inferior);}
+						nivelesALlenar = GetNivelAbrigoByCategoria(EnumCategoria.Inferior,temperaturaMinima,temperaturaMaxima);}
 					sugerencia.agregarPrendaSeleccionada(prendaInferior);
 					nivelesALlenar --;
 					if(nivelesALlenar <= 0) {
@@ -113,9 +113,9 @@ public class Guardarropa {
 		return sugerencias;
 	}
 
-	private int GetNivelAbrigoByCategoria(EnumCategoria categoria) throws IOException {
-		for(Parametros par: Testing.TestLeerArchivoJson.JsonToParametros("")) {
-			if(par.getCategoria().equals(categoria) && par.getRangoTemperaturaDesde() >= 0 && par.getRangoTemperaturaHasta() <= 0) {
+	private int GetNivelAbrigoByCategoria(EnumCategoria categoria, int temperaturaMinima, int temperaturaMaxima) throws IOException {
+		for(Parametros par: Testing.TestLeerArchivoJson.JsonToParametros()) {
+			if(par.getCategoria().equals(categoria) && par.getRangoTemperaturaDesde() >= temperaturaMinima && par.getRangoTemperaturaHasta() <= temperaturaMaxima) {
 				return par.getNivelAbrigoDeseado();
 			}
 		}
@@ -187,8 +187,8 @@ public class Guardarropa {
 		this.guardarropasCompartido = guardarropasCompartido;
 	}
 
-	public void setUsuariosCompartiendo(List<Usuario> usuariosCompartiendo) {
-		this.usuariosCompartiendo = usuariosCompartiendo;
+	public void AddUsuariosCompartiendo(Usuario usuarioCompartiendo) {
+		this.usuariosCompartiendo.add(usuarioCompartiendo);
 	}
 
 	public void setParteSuperior(List<Prenda> parteSuperior) {

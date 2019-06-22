@@ -68,7 +68,7 @@ public class TestGuardarropas {
 		
 		prenda.setCategoria(Superior);
 		prenda.setNumeroCapa(1);
-		prenda.setDisponibleParaSugerir(true);
+		
 		prenda.setUrlImagen("Nada");
 
 		//Prenda Remera Dos
@@ -79,7 +79,7 @@ public class TestGuardarropas {
 				
 		prendaDos.setCategoria(Superior);
 		prendaDos.setNumeroCapa(1);
-		prendaDos.setDisponibleParaSugerir(true);
+		
 		prendaDos.setUrlImagen("Nada");		
 		
 		//Prenda Camisa Uno
@@ -90,7 +90,6 @@ public class TestGuardarropas {
 		
 		prendaTres.setCategoria(Superior);
 		prendaTres.setNumeroCapa(1);
-		prendaTres.setDisponibleParaSugerir(true);
 		prendaTres.setUrlImagen("Nada");
 		
 		// Prenda Pantalon Uno
@@ -101,8 +100,7 @@ public class TestGuardarropas {
 		
 		prendaCuatro.setCategoria(Inferior);
 		prendaCuatro.setNumeroCapa(1);
-		prendaCuatro.setDisponibleParaSugerir(true);
-		prendaCuatro.setUrlImagen("Vacio");
+			prendaCuatro.setUrlImagen("Vacio");
 		
 		// Prenda Zapatilla Uno
 		
@@ -112,7 +110,7 @@ public class TestGuardarropas {
 		
 		prendaCinco.setCategoria(Calzado);
 		prendaCinco.setNumeroCapa(1);
-		prendaCinco.setDisponibleParaSugerir(true);
+	//	prendaCinco.setDisponibleParaSugerir(true);
 		prendaCinco.setUrlImagen("");
 		
 		// Prenda Zapatilla Dos
@@ -123,7 +121,7 @@ public class TestGuardarropas {
 		
 		prendaSiete.setCategoria(Calzado);
 		prendaSiete.setNumeroCapa(2);
-		prendaSiete.setDisponibleParaSugerir(true);
+		//prendaSiete.setDisponibleParaSugerir(true);
 		prendaSiete.setUrlImagen("Ejemplo");
 		
 		// Prenda Lentes Uno
@@ -134,7 +132,7 @@ public class TestGuardarropas {
 		
 		prendaSeis.setCategoria(Accesorio);
 		prendaSeis.setNumeroCapa(2);
-		prendaSeis.setDisponibleParaSugerir(true);
+		//prendaSeis.setDisponibleParaSugerir(true);
 		prendaSeis.setUrlImagen("");
 		
 		
@@ -193,7 +191,7 @@ public class TestGuardarropas {
 	@Test
 	public void cantidadDeSugerencias() throws IOException{
 		
-		sugerencias = guardarropa.algortimoDeRecomendacion();
+		sugerencias = guardarropa.algortimoDeRecomendacion(1,3);
 		
 		Assert.assertEquals(6, sugerencias.size());
 		
