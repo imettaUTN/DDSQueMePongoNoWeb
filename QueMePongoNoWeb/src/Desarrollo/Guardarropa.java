@@ -1,4 +1,5 @@
 package Desarrollo;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
@@ -7,8 +8,9 @@ import lombok.*;
 public class Guardarropa {
 	
 	private List<Prenda> prendasDisponibles = new ArrayList<Prenda>();
-	private int maximoPrendas;
+	private int maximoPrendas;	
 	private boolean guardarropasCompartido;
+	private int nivelesALlenar = 0;
 	private List<Usuario> usuariosCompartiendo = new ArrayList<Usuario>();
 	
 	private List<Prenda> parteSuperior = new ArrayList<Prenda>();
@@ -16,17 +18,13 @@ public class Guardarropa {
 	private List<Prenda> accesorios = new ArrayList<Prenda>();
 	private List<Prenda> calzados = new ArrayList<Prenda>();
 		
-	public Sugerencia GenerarSugerencia(int temperatura){
-	
-		EnumEstadoSugerencia NUEVO = null;
-		EnumEstadoEvento ENPROCESO = null;
-		Sugerencia sugerencia = new Sugerencia();
-		
-		sugerencia.setEstado(NUEVO);
-		
-		return sugerencia; 
+	public List<Sugerencia> GenerarSugerencia(int temperaturaMinima, int temperaturaMaxima) throws IOException{
+			
+		return algortimoDeRecomendacion(); 
 		
 	}
+	
+	
 	
 	public boolean agregarPrenda(Prenda prenda){
 		
@@ -62,24 +60,51 @@ public class Guardarropa {
 		return this.prendasDisponibles.size();
 	}
 	
-	public List<Sugerencia> algortimoDeRecomendacion(){
+	public List<Sugerencia> algortimoDeRecomendacion() throws IOException{
 		
 		List<Sugerencia> sugerencias = new ArrayList<Sugerencia>();
-		
 		for(Prenda prendaSuperior:parteSuperior){
-			
-			for(Prenda prendaInferior:parteInferior){
-				
-				for(Prenda calzado:calzados){
-					
-					for(Prenda accesorio:accesorios){
-						
-						Sugerencia sugerencia = new Sugerencia();
-						sugerencia.agregarPrendaSeleccionada(prendaSuperior);
-						sugerencia.agregarPrendaSeleccionada(prendaInferior);
-						sugerencia.agregarPrendaSeleccionada(calzado);
-						sugerencia.agregarPrendaSeleccionada(accesorio);
-						sugerencias.add(sugerencia);
+			if(nivelesALlenar == 0) {
+			nivelesALlenar = GetNivelAbrigoByCategoria(EnumCategoria.Superior);}
+			Sugerencia sugerencia = new Sugerencia();
+			sugerencia.agregarPrendaSeleccionada(prendaSuperior);
+			nivelesALlenar --;
+			if(nivelesALlenar <= 0) {
+				for(Prenda prendaInferior:parteInferior){
+					if(nivelesALlenar == 0) {
+						nivelesALlenar = GetNivelAbrigoByCategoria(EnumCategoria.Inferior);}
+					sugerencia.agregarPrendaSeleccionada(prendaInferior);
+					nivelesALlenar --;
+					if(nivelesALlenar <= 0) {
+							if((EsColorCombinable(prendaSuperior.getColorPrimario(), prendaInferior.getColorSecundario())) &&
+									(EsColorCombinable(prendaInferior.getColorPrimario(), prendaSuperior.getColorSecundario())))
+							{									
+								for(Prenda calzado:calzados){									
+										sugerencia.agregarPrendaSeleccionada(calzado);
+										if((EsColorCombinable(prendaSuperior.getColorPrimario(), calzado.getColorSecundario())) &&
+												(EsColorCombinable(calzado.getColorPrimario(), prendaSuperior.getColorSecundario())) &&
+												(EsColorCombinable(prendaInferior.getColorPrimario(), calzado.getColorSecundario())) &&
+												(EsColorCombinable(calzado.getColorPrimario(), prendaInferior.getColorSecundario()))
+											)	
+										{
+										
+											for(Prenda accesorio:accesorios){
+											if((EsColorCombinable(prendaSuperior.getColorPrimario(), accesorio.getColorSecundario())) &&
+													(EsColorCombinable(accesorio.getColorPrimario(), prendaSuperior.getColorSecundario())) &&
+													(EsColorCombinable(prendaInferior.getColorPrimario(), accesorio.getColorSecundario())) &&
+													(EsColorCombinable(accesorio.getColorPrimario(), prendaInferior.getColorSecundario())) &&
+													(EsColorCombinable(calzado.getColorPrimario(), accesorio.getColorSecundario())) &&
+													(EsColorCombinable(accesorio.getColorPrimario(), calzado.getColorSecundario())) 
+											)
+											{
+												sugerencia.agregarPrendaSeleccionada(accesorio);
+												sugerencia.setEstado(EnumEstadoSugerencia.NUEVO);
+												sugerencias.add(sugerencia);
+											}
+										}
+									}
+							   }
+							}
 					}
 				}
 			}
@@ -88,6 +113,36 @@ public class Guardarropa {
 		return sugerencias;
 	}
 
+	private int GetNivelAbrigoByCategoria(EnumCategoria categoria) throws IOException {
+		for(Parametros par: Testing.TestLeerArchivoJson.JsonToParametros("")) {
+			if(par.getCategoria().equals(categoria) && par.getRangoTemperaturaDesde() >= 0 && par.getRangoTemperaturaHasta() <= 0) {
+				return par.getNivelAbrigoDeseado();
+			}
+		}
+		return 0;
+	}
+	
+	private boolean EsColorCombinable(String colorPrimario, String colorSecundario) {
+		
+		if(colorPrimario.equals("ROJO")) {
+			return colorSecundario.equals("BLANCO") || colorSecundario.equals("NEGRO") || colorSecundario.equals("GRIS") || colorSecundario.equals("AMARILLO") || colorSecundario.equals("BEIGE") ;
+		}
+		if(colorPrimario.equals("AMARILLO")) {
+			return colorSecundario.equals("BLANCO") || colorSecundario.equals("NEGRO") || colorSecundario.equals("GRIS") || colorSecundario.equals("AZUL") || colorSecundario.equals("MORADO") || colorSecundario.equals("ROJO") ;
+		}
+		if(colorPrimario.equals("AZUL")) {
+			return colorSecundario.equals("AMARILLO") || colorSecundario.equals("BLANCO") || colorSecundario.equals("NARANJA") || colorSecundario.equals("NARANJA") || colorSecundario.equals("MARRON")  || colorSecundario.equals("VERDE") || colorSecundario.equals("ROJO") ;
+		}
+		if(colorPrimario.equals("BLANCO")) {
+			return colorSecundario.equals("BLANCO");
+		}
+		if(colorPrimario.equals("NEGRO")) {
+			return colorSecundario.equals("NEGRO");
+		}
+		
+		return false;		
+	}
+	
 	public List<Prenda> getPrendasDisponibles() {
 		return prendasDisponibles;
 	}

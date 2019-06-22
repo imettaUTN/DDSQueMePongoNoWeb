@@ -1,5 +1,7 @@
 package Desarrollo;
 
+import java.io.IOException;
+
 public class InvokerGestorEvento {
 private IComand comand;
 
@@ -11,7 +13,7 @@ public void setComand(IComand comand) {
 	this.comand = comand;
 }
 
-public void ObtenerSugerencia(Evento evento) {
+public void SettearSugerencia(Evento evento) throws IOException {
 	CommandObtenerClima clima = new CommandObtenerClima();
 	clima.Execute(evento);
 	CommandObtenerSugerencia sugerencia = new CommandObtenerSugerencia();

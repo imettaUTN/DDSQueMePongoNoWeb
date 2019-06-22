@@ -40,5 +40,10 @@ public class Sugerencia {
 	public void setEstado(EnumEstadoSugerencia estado) {
 		this.estado = estado;
 	}
-
+	public void AceptarSugerencia() {
+		this.setEstado(EnumEstadoSugerencia.ACEPTADA);
+	}
+	public void RechazarSugerencia() {
+		this.setEstado(EnumEstadoSugerencia.RECHAZADA);
+	}
 }

@@ -1,4 +1,5 @@
 package Desarrollo;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 import lombok.*;
@@ -8,7 +9,8 @@ public class Evento {
 	
 	private LocalDate fechaAlta;
 	private LocalDate fechaEvento;
-	private int temperatura;
+	private int temperaturaMinima;
+	private int temperaturaMaxima;
 	private Sugerencia sugerencia;
 	private EnumEstadoEvento estado;
 	private InvokerGestorEvento invoker;
@@ -25,9 +27,6 @@ public class Evento {
 		return fechaEvento;
 	}
 
-	public int getTemperatura() {
-		return temperatura;
-	}
 
 	public Sugerencia getSugerencia() {
 		return sugerencia;
@@ -37,9 +36,6 @@ public class Evento {
 		return estado;
 	}
 
-	public InvokerGestorEvento getInvoker() {
-		return invoker;
-	}
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -61,9 +57,6 @@ public class Evento {
 		this.fechaEvento = fechaEvento;
 	}
 
-	public void setTemperatura(int temperatura) {
-		this.temperatura = temperatura;
-	}
 
 	public void setSugerencia(Sugerencia sugerencia) {
 		this.sugerencia = sugerencia;
@@ -73,10 +66,7 @@ public class Evento {
 		this.estado = estado;
 	}
 
-	public void setInvoker(InvokerGestorEvento invoker) {
-		this.invoker = invoker;
-	}
-
+	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
@@ -89,24 +79,43 @@ public class Evento {
 		this.ubicacion = ubicacion;
 	}
 
-	public Sugerencia ProcesarEvento(Date fecha) {
+	public void ProcesarEvento(Date fecha) throws IOException {
 		
-			return sugerencia;
+		 this.getInvoker().SettearSugerencia(this);
 		
 	}
 	
+	public InvokerGestorEvento getInvoker() {
+		return invoker;
+	}
+
 	public void nuevoEvento(LocalDate fechaEvento, Usuario usuario, UbicacionEvento ubicacion){
-		
-			EnumEstadoEvento NUEVO = null;
-			
+						
 			this.fechaEvento = fechaEvento;
 			this.usuario = usuario;
 			this.ubicacion = ubicacion;
 			
 			this.fechaAlta = LocalDate.now();
-			this.setTemperatura(0);
-			this.estado = NUEVO;
+			this.setTemperaturaMinima(0);
+			this.setTemperaturaMaxima(0);
+			this.estado = EnumEstadoEvento.NUEVO;
 			this.guardaropaAsociado = null;
+	}
+
+	public int getTemperaturaMinima() {
+		return temperaturaMinima;
+	}
+
+	public void setTemperaturaMinima(int temperaturaMinima) {
+		this.temperaturaMinima = temperaturaMinima;
+	}
+
+	public int getTemperaturaMaxima() {
+		return temperaturaMaxima;
+	}
+
+	public void setTemperaturaMaxima(int temperaturaMaxima) {
+		this.temperaturaMaxima = temperaturaMaxima;
 	}
 	
 }

@@ -1,6 +1,7 @@
 package Testing;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.*;
 import com.google.gson.*;
 import Desarrollo.*;
@@ -84,6 +85,25 @@ public static List<Parametros> JsonToParametros(String path) throws IOException 
 	   	}     
 return parametros;
 	}
+
+//  devuelve los proximos 7 dias a futuro, contando desde hoy 0 hoy
+public static Clima[] JsonGetTemperatura(String path, int latitud, int longitud) throws IOException{
+	// Devuelve  datos dammy para una latitud y una longitud
+	String json1 = readFile(path);
+	JsonParser parser = new JsonParser();
+	Clima temperaturas[] = new Clima[7];
+	// Obtengo el primer ObjetoJason
+   	JsonArray gsonObj1 = parser.parse(json1).getAsJsonArray();
+   	int index = 0;
+ 	for (JsonElement obj : gsonObj1) {
+ 		if(index >= 7) { break;}
+        JsonObject gsonObj = obj.getAsJsonObject();
+        if(gsonObj.get("latitud").getAsInt() == latitud && gsonObj.get("longitud").getAsInt() == longitud ) {
+        	Clima clima = new Clima(gsonObj.get("max").getAsInt(),gsonObj.get("max").getAsInt(),LocalDate.now());
+        	temperaturas[index] =clima;        }
+ 	}
+	return temperaturas;
+}
 	
 	private static EnumCategoria GetTipoCategoria(String xCategoria){
 		

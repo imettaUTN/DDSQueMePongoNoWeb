@@ -1,4 +1,5 @@
 package Desarrollo;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 import lombok.*;
@@ -33,6 +34,10 @@ public class Usuario {
 		Evento evento = new Evento();
 		evento.nuevoEvento(fecha,this, ubicacion);
 	}
+	public void ProcesarEvento(Evento evento) throws IOException {
+		InvokerGestorEvento invoke = new InvokerGestorEvento();
+		invoke.SettearSugerencia(evento);
+	}
 	
 	public void agregarPrendaAGuardarropa(Prenda prenda, int guardarropa){
 		
@@ -41,15 +46,12 @@ public class Usuario {
 	}
 	
 	public void aceptarSugerencia(Sugerencia sugerencia){
-		
-		EnumEstadoSugerencia ACEPTADA = null;
-		sugerencia.setEstado(ACEPTADA);
+		sugerencia.AceptarSugerencia();
 	}
 	
 	public void rechazarSugerencia(Sugerencia sugerencia){
 		
-		EnumEstadoSugerencia RECHAZADA = null;
-		sugerencia.setEstado(RECHAZADA);
+		sugerencia.RechazarSugerencia();
 	}
 
 	public String getNombre() {

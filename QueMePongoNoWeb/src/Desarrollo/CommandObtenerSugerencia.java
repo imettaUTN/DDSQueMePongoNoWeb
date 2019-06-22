@@ -1,18 +1,17 @@
 package Desarrollo;
 
+import java.io.IOException;
+
 public class CommandObtenerSugerencia implements IComand {
 
 	@Override
-	public void Execute(Evento evento) {
+	public void Execute(Evento evento) throws IOException  {
 	
-		int temperatura = 0;
-		EnumEstadoEvento ENPROCESO = null;
-		
+				
 		Guardarropa guardaropaAsociado = evento.getGuardaropaAsociado();
-		evento.setSugerencia(guardaropaAsociado.GenerarSugerencia(temperatura));
+		evento.setSugerencia(guardaropaAsociado.GenerarSugerencia(evento.getTemperaturaMinima(), evento.getTemperaturaMaxima()).get(0));
 		
-		evento.setTemperatura(temperatura);
-		evento.setEstado(ENPROCESO);
+		evento.setEstado(EnumEstadoEvento.ENPROCESO);
 	}
 
 }
