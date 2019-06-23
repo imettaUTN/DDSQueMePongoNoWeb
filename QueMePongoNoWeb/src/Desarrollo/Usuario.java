@@ -22,9 +22,9 @@ public class Usuario {
 	}
 	
 	
-	public void agregarPrendaAGuardarropa(Prenda prenda, int guardarropa){
+	public boolean agregarPrendaAGuardarropa(Prenda prenda, int guardarropa){
 		
-		this.getGuardarropas().get(guardarropa).agregarPrenda(prenda);
+		return this.getGuardarropas().get(guardarropa).agregarPrenda(prenda);
 		
 	}
 	

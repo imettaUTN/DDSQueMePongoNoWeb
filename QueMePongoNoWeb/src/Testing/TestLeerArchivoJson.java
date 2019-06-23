@@ -124,10 +124,10 @@ public static List<Usuario> JsonToUsuarios() throws IOException {
 
    	for (JsonElement obj : gsonObj1) {
    		
-        // Obtengo el objeto Cliente
+        // Obtengo el objeto Usuario
         JsonObject gsonObj = obj.getAsJsonObject();
 
-        // Obtengo las primitivas del cliente
+        // Obtengo las primitivas del Usuario
         Usuario usuario = new Usuario();
         
         usuario.setNombre(gsonObj.get("nombre").getAsString());
