@@ -28,7 +28,7 @@ public class TestLeerArchivoJson {
 	
 	public static List<Prenda> JsonToPrendas() throws IOException {
 		
-		String path = "/Testing.ArchivoPrueba/JsonPrendas.json";
+		String path = "/QueMePongoNoWeb/src/Testing/ArchivosPrueba/JsonPrendas.json";
 		String json1 = readFile(path);
 		JsonParser parser = new JsonParser();
 		List<Prenda> prendas = new ArrayList<Prenda>();
@@ -48,9 +48,11 @@ public class TestLeerArchivoJson {
 
             JsonArray telasValidas = gsonObj.get("telasValidas").getAsJsonArray();
             TipoPrenda tp = new TipoPrenda();
+            
             for (JsonElement tl : telasValidas) {
             	tp.AddTelaValida(gsonObj.getAsString());            	
             }
+            
             tp.setNivelAbrigo(gsonObj.get("nivelAbrigo").getAsInt());
             tp.setDescripcion(gsonObj.get("descripcion").getAsString());
             prenda.setTipoPrenda(tp);
@@ -60,12 +62,12 @@ public class TestLeerArchivoJson {
             prenda.setUrlImagen((gsonObj.get("urlImagen").getAsString()));
             prendas.add(prenda);
 	   	}        
-return prendas;
+	   		return prendas;
 	}
 	
 public static List<Parametros> JsonToParametros() throws IOException {
 
-	String path = "/Testing.ArchivoPrueba/JsonPrendas.json";
+		String path = "/Testing.ArchivoPrueba/JsonPrendas.json";
 		String json1 = readFile(path);
 		JsonParser parser = new JsonParser();
 		List<Parametros> parametros = new ArrayList<Parametros>();
@@ -85,7 +87,7 @@ public static List<Parametros> JsonToParametros() throws IOException {
 	        parametro.setCategoria(GetTipoCategoria(gsonObj.get("categoria").getAsString()));
 	        parametros.add(parametro);
 	   	}     
-return parametros;
+	   		return parametros;
 	}
 
 //  devuelve los proximos 7 dias a futuro, contando desde hoy 0 hoy
@@ -105,18 +107,22 @@ public static Clima[] JsonGetTemperatura( int latitud, int longitud) throws IOEx
         	Clima clima = new Clima(gsonObj.get("max").getAsInt(),gsonObj.get("max").getAsInt(),LocalDate.now());
         	temperaturas[index] =clima;        }
  	}
-	return temperaturas;
+ 		return temperaturas;
 }
 	
 	private static EnumCategoria GetTipoCategoria(String xCategoria){
 		
 		switch(xCategoria) {
+		
 		case "Superior":
-		return EnumCategoria.Superior;
+			return EnumCategoria.Superior;
+		
 		case "Inferior":
-		return EnumCategoria.Inferior;
+			return EnumCategoria.Inferior;
+		
 		case "Calzado":
 			return EnumCategoria.Calzado;
+		
 		case "Accesorio":
 			return EnumCategoria.Accesorio;
 			default :

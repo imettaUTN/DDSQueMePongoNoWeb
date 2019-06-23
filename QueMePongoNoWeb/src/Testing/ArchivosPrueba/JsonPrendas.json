@@ -1,0 +1,37 @@
+[{
+
+		"colorPrimario": "rojo",
+		"colorSecundario": "azul",
+		"tipoPrenda": "Superior",
+		"tela": "Gabardina",
+		"EnumCategoria": "",
+		"numeroCapa": 1,
+		"urlImagen": "",
+		"disponibleParaSugerir": true
+
+	},
+	{
+
+		"colorPrimario": "verde",
+		"colorSecundario": "amarillo",
+		"tipoPrenda": "Superior",
+		"tela": "Gabardina",
+		"EnumCategoria": "",
+		"numeroCapa": 1,
+		"urlImagen": "",
+		"disponibleParaSugerir": true
+
+	},
+	{
+
+		"colorPrimario": "rojo",
+		"colorSecundario": "azul",
+		"tipoPrenda": "Superior",
+		"tela": "Gabardina",
+		"EnumCategoria": "",
+		"numeroCapa": 1,
+		"urlImagen": "",
+		"disponibleParaSugerir": true
+
+	}
+]
