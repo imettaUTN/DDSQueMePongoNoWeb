@@ -65,6 +65,7 @@ public class TestLeerArchivoJson {
 	   		return prendas;
 	}
 	
+
 public static List<Parametros> JsonToParametros() throws IOException {
 
 		String path = "/Testing.ArchivoPrueba/JsonPrendas.json";
@@ -109,8 +110,39 @@ public static Clima[] JsonGetTemperatura( int latitud, int longitud) throws IOEx
  	}
  		return temperaturas;
 }
+
+
+public static List<Usuario> JsonToUsuarios() throws IOException {
 	
-	private static EnumCategoria GetTipoCategoria(String xCategoria){
+	String path = "/QueMePongoNoWeb/src/Testing/ArchivosPrueba/JsonUsuarios.json";
+	String json1 = readFile(path);
+	JsonParser parser = new JsonParser();
+	List<Usuario> usuarios = new ArrayList<Usuario>();
+	
+	// Obtengo el primer ObjetoJason
+   	JsonArray gsonObj1 = parser.parse(json1).getAsJsonArray();
+
+   	for (JsonElement obj : gsonObj1) {
+   		
+        // Obtengo el objeto Cliente
+        JsonObject gsonObj = obj.getAsJsonObject();
+
+        // Obtengo las primitivas del cliente
+        Usuario usuario = new Usuario();
+        
+        usuario.setNombre(gsonObj.get("nombre").getAsString());
+        usuario.setApellido(gsonObj.get("apellido").getAsString());
+        usuario.setPassword(gsonObj.get("password").getAsString());
+        usuario.setTipoUsuario(GetTipoUsuario(gsonObj.get("tipoUsuario").getAsString()));
+        
+        usuarios.add(usuario);
+       
+   	}        
+   		return usuarios;
+}
+	
+
+private static EnumCategoria GetTipoCategoria(String xCategoria){
 		
 		switch(xCategoria) {
 		
@@ -125,6 +157,22 @@ public static Clima[] JsonGetTemperatura( int latitud, int longitud) throws IOEx
 		
 		case "Accesorio":
 			return EnumCategoria.Accesorio;
+			default :
+			return null;
+		}
+		
+}
+	
+private static EnumUsuario GetTipoUsuario(String xUsuario){
+		
+		switch(xUsuario) {
+		
+		case "Gratuito":
+			return EnumUsuario.Gratuito;
+		
+		case "Premium":
+			return EnumUsuario.Premium;
+		
 			default :
 			return null;
 		}
