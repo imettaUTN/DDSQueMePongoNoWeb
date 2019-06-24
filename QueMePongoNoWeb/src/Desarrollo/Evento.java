@@ -18,6 +18,8 @@ public class Evento {
 	private InvokerGestorEvento invoker;
 	private Usuario usuario;
 	private Guardarropa guardaropaAsociado;
+	private UbicacionEvento ubicacion;
+	
 	public ServidorColaDeEventos getServidorCola() {
 		return servidorCola;
 	}
@@ -26,9 +28,6 @@ public class Evento {
 		this.servidorCola = servidorCola;
 	}
 
-	private UbicacionEvento ubicacion;
-	
-	
 	public LocalDate getFechaAlta() {
 		return fechaAlta;
 	}
