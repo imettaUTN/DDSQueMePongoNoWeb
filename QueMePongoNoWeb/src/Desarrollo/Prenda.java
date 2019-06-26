@@ -1,4 +1,5 @@
 package Desarrollo;
+import Desarrollo.Enumerados.EnumCategoria;
 import lombok.*;
 
 @Data

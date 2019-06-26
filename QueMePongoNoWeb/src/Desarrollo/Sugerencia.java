@@ -1,5 +1,7 @@
 package Desarrollo;
 import java.util.*;
+
+import Desarrollo.Enumerados.EnumEstadoSugerencia;
 import lombok.*;
 
 @Data

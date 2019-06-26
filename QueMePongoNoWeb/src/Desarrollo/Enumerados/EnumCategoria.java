@@ -1,4 +1,4 @@
-package Desarrollo;
+package Desarrollo.Enumerados;
 
 public enum EnumCategoria {
 Superior("Parte del dorso",1),Inferior("Cintura para abajo",2),Calzado("Calzado",3),Accesorio("Accesorio",4);

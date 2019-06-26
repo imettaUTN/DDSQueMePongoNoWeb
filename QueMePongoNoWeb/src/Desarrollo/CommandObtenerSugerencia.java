@@ -3,6 +3,8 @@ package Desarrollo;
 import java.io.IOException;
 import java.util.*;
 
+import Desarrollo.Enumerados.EnumEstadoEvento;
+
 public class CommandObtenerSugerencia implements IComand {
 
 	@Override

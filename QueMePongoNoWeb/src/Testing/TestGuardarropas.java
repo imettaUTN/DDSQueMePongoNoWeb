@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.junit.*;
 import Desarrollo.*;
+import Desarrollo.Enumerados.EnumCategoria;
 
 public class TestGuardarropas {
 	

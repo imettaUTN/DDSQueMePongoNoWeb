@@ -1,6 +1,8 @@
 package Desarrollo;
 import java.io.IOException;
 import Desarrollo.*;
+import Desarrollo.Enumerados.EnumUsuario;
+
 import java.time.LocalDate;
 import java.util.*;
 import lombok.*;

@@ -2,6 +2,9 @@ package Desarrollo;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import Desarrollo.Enumerados.EnumCategoria;
+import Desarrollo.Enumerados.EnumEstadoSugerencia;
 import lombok.*;
 
 @Data

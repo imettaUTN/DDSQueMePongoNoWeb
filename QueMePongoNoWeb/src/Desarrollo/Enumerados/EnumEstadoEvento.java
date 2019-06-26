@@ -1,4 +1,4 @@
-package Desarrollo;
+package Desarrollo.Enumerados;
 
 public enum EnumEstadoEvento {
 	

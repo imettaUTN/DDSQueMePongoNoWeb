@@ -1,6 +1,7 @@
 package Testing;
 import org.junit.*;
 import Desarrollo.*;
+import Desarrollo.Enumerados.EnumUsuario;
 
 public class TestDeUsuario {
 	

@@ -2,6 +2,8 @@ package Desarrollo;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
+
+import Desarrollo.Enumerados.EnumEstadoEvento;
 import lombok.*;
 
 @Data

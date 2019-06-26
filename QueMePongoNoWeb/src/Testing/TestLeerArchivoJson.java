@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.*;
 import com.google.gson.*;
 import Desarrollo.*;
+import Desarrollo.Enumerados.EnumCategoria;
+import Desarrollo.Enumerados.EnumUsuario;
 
 public class TestLeerArchivoJson {
 	public static String readFile(String file) throws IOException {

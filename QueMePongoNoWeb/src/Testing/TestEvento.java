@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Desarrollo.*;
+import Desarrollo.Enumerados.EnumUsuario;
 
 public class TestEvento {
 Evento evento = new Evento();

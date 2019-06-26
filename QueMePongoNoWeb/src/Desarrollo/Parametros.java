@@ -1,5 +1,7 @@
 package Desarrollo;
 
+import Desarrollo.Enumerados.EnumCategoria;
+
 public class Parametros {
 private int NivelAbrigoDeseado;
 private EnumCategoria categoria;
