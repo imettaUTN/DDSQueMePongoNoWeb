@@ -136,6 +136,7 @@ public class TestGuardarropas {
 		//prendaSeis.setDisponibleParaSugerir(true);
 		prendaSeis.setUrlImagen("");
 		
+		/*
 		
 		//Guardarropa
 		guardarropa.setMaximoPrendas(10);
@@ -147,7 +148,7 @@ public class TestGuardarropas {
 		guardarropa.getCalzados().add(prendaCinco);
 		guardarropa.getAccesorios().add(prendaSeis);
 		guardarropa.getCalzados().add(prendaSiete);
-		
+		*/
 		
 	}
 	
@@ -160,35 +161,7 @@ public class TestGuardarropas {
 		
 	}
 	
-	@Test
-	public void cantidadDePrendasSuperiores(){
-		
-		Assert.assertEquals(3, guardarropa.getParteSuperior().size());
-	} 
-	
-	@Test
-	public void cantidadDePrendasInferiores(){
-		
-		Assert.assertEquals(1, guardarropa.getParteInferior().size());
-		
-	} 
-	
-	@Test
-	public void cantidadDeCalzados(){
-		
-		Assert.assertEquals(2, guardarropa.getCalzados().size());
-		
-	} 
-	
-	@Test
-	public void cantidadDeAccesorios(){
-		
-		Assert.assertEquals(1, guardarropa.getAccesorios().size());
-		
-	} 
-	
-	
-	
+
 	@Test
 	public void cantidadDeSugerencias() throws IOException{
 		

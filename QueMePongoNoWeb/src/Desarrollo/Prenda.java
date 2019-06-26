@@ -14,6 +14,26 @@ public class Prenda {
 	private String urlImagen;
 	private boolean disponibleParaSugerir = true;
 	
+	public boolean esInferior(){
+		
+		return (categoria == EnumCategoria.Inferior);
+	}
+	
+	public boolean esSuperior(){
+		
+		return (categoria == EnumCategoria.Superior);
+	}
+	
+	public boolean esAccesorio(){
+		
+		return (categoria == EnumCategoria.Accesorio);
+	}
+	
+	public boolean esCalzado(){
+		
+		return (categoria == EnumCategoria.Calzado);
+	}
+	
 	public String getColorPrimario() {
 		return colorPrimario;
 	}

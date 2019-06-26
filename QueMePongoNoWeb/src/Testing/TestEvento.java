@@ -17,12 +17,13 @@ Usuario usuario = new Usuario();
 ServidorColaDeEventos servidorCola ;
 UbicacionEvento ubicacion;
 Guardarropa guardarropa = new Guardarropa();
-	@Before
+@Before
+
 	public void init() throws IOException{
 		usuario.setTipoUsuario(EnumUsuario.Gratuito);
 		guardarropa.setMaximoPrendas(20);
 		guardarropa.AddUsuariosCompartiendo(usuario);
-		guardarropa.setPrendasDisponibles(Testing.TestLeerArchivoJson.JsonToPrendas());
+		//guardarropa.setPrendasDisponibles(Testing.TestLeerArchivoJson.JsonToPrendas());
 		servidorCola = new ServidorColaDeEventos();
         ubicacion = new UbicacionEvento();
 

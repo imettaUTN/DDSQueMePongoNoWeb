@@ -22,9 +22,11 @@ public class Usuario {
 		
 		Evento evento = new Evento();
 		evento.nuevoEvento(fecha,this, ubicacion);
+		this.eventos.add(evento);
 		evento.ProcesarEvento();
 	}
 	
+
 	public boolean agregarPrendaAGuardarropa(Prenda prenda, int guardarropa){
 		
 		return this.getGuardarropas().get(guardarropa).agregarPrenda(prenda);
@@ -70,7 +72,7 @@ public class Usuario {
 		
 		if(this.tipoUsuario == EnumUsuario.Premium){
 			
-			nuevoGuardarropa.setMaximoPrendas(-1);
+			nuevoGuardarropa.setMaximoPrendas(1000);
 		
 		}else{
 			

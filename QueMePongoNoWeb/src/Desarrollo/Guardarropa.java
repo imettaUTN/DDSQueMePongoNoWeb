@@ -10,6 +10,7 @@ import lombok.*;
 @Data
 public class Guardarropa {
 	
+	private int id;
 	private List<Prenda> prendasDisponibles = new ArrayList<Prenda>();
 	private int maximoPrendas;	
 	private String descripcion;
@@ -17,41 +18,20 @@ public class Guardarropa {
 	private int nivelesALlenar = 0;
 	private List<Usuario> usuariosCompartiendo = new ArrayList<Usuario>();
 	
-	private List<Prenda> parteSuperior = new ArrayList<Prenda>();
-	private List<Prenda> parteInferior = new ArrayList<Prenda>();
-	private List<Prenda> accesorios = new ArrayList<Prenda>();
-	private List<Prenda> calzados = new ArrayList<Prenda>();
-	
-	
+
 	public List<Sugerencia> GenerarSugerencia(int temperaturaMinima, int temperaturaMaxima) throws IOException{
 			
 			return algortimoDeRecomendacion(temperaturaMinima,temperaturaMaxima); 
 		
 	}
 	
+	
 	public boolean agregarPrenda(Prenda prenda){
 		
-		if(maximoPrendas > 0) {
 			
-			switch(prenda.getCategoria()){
+		if(cantidadDePrendas() <= maximoPrendas) {
 			
-				case Superior:
-					
-					this.parteSuperior.add(prenda);
-					
-				case Inferior:
-					
-					this.parteInferior.add(prenda);
-					
-				case Calzado:
-					
-					this.calzados.add(prenda);
-					
-				case Accesorio:	
-					
-					this.calzados.add(prenda);
-			}
-			
+			prendasDisponibles.add(prenda);
 			return true;
 		}
 		
@@ -66,6 +46,12 @@ public class Guardarropa {
 	public List<Sugerencia> algortimoDeRecomendacion(int temperaturaMaxima, int temperaturaMinima) throws IOException{
 		
 		List<Sugerencia> sugerencias = new ArrayList<Sugerencia>();
+		List<Prenda> parteSuperior = (List<Prenda>) this.prendasDisponibles.stream().filter(p->p.esSuperior());
+		List<Prenda> parteInferior = (List<Prenda>) this.prendasDisponibles.stream().filter(p->p.esInferior());
+		List<Prenda> calzados = (List<Prenda>) this.prendasDisponibles.stream().filter(p->p.esCalzado());
+		List<Prenda> accesorios = (List<Prenda>) this.prendasDisponibles.stream().filter(p->p.esAccesorio());
+		
+		
 		for(Prenda prendaSuperior:parteSuperior){
 			if(nivelesALlenar == 0) {
 			nivelesALlenar = GetNivelAbrigoByCategoria(EnumCategoria.Superior,temperaturaMinima,temperaturaMaxima);}
@@ -73,6 +59,7 @@ public class Guardarropa {
 			sugerencia.agregarPrendaSeleccionada(prendaSuperior);
 			nivelesALlenar --;
 			if(nivelesALlenar <= 0) {
+				
 				for(Prenda prendaInferior:parteInferior){
 					if(nivelesALlenar == 0) {
 						nivelesALlenar = GetNivelAbrigoByCategoria(EnumCategoria.Inferior,temperaturaMinima,temperaturaMaxima);}
@@ -162,21 +149,6 @@ public class Guardarropa {
 		return usuariosCompartiendo;
 	}
 
-	public List<Prenda> getParteSuperior() {
-		return parteSuperior;
-	}
-
-	public List<Prenda> getParteInferior() {
-		return parteInferior;
-	}
-
-	public List<Prenda> getAccesorios() {
-		return accesorios;
-	}
-
-	public List<Prenda> getCalzados() {
-		return calzados;
-	}
 
 	public void setPrendasDisponibles(List<Prenda> prendasDisponibles) {
 		this.prendasDisponibles = prendasDisponibles;
@@ -194,20 +166,6 @@ public class Guardarropa {
 		this.usuariosCompartiendo.add(usuarioCompartiendo);
 	}
 
-	public void setParteSuperior(List<Prenda> parteSuperior) {
-		this.parteSuperior = parteSuperior;
-	}
-
-	public void setParteInferior(List<Prenda> parteInferior) {
-		this.parteInferior = parteInferior;
-	}
-
-	public void setAccesorios(List<Prenda> accesorios) {
-		this.accesorios = accesorios;
-	}
-
-	public void setCalzados(List<Prenda> calzados) {
-		this.calzados = calzados;
-	}
+	
 	
 }

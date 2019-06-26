@@ -14,14 +14,7 @@ public class TestDeUsuario {
 	@Before
 	public void init(){
 		
-		usuario.setNombre("Cristian");
-		usuario.setApellido("Romero");
-		usuario.setPassword("Cris2019");
-		usuario.setTipoUsuario(Premium);
 		
-		usuario.agregarGuardarropa(guardarropaUno);
-		usuario.agregarGuardarropa(guardarropaDos);
-		usuario.agregarGuardarropa(guardarropaTres);
 		
 	}
 	

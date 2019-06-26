@@ -12,6 +12,7 @@ public class Evento {
 	
 	private LocalDate fechaAlta;
 	private LocalDate fechaEvento;
+	private String descripcion;
 	private int temperaturaMinima;
 	private int temperaturaMaxima;
 	private Sugerencia sugerenciaSeleccionada;
