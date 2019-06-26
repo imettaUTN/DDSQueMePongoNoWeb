@@ -9,6 +9,7 @@ public class Guardarropa {
 	
 	private List<Prenda> prendasDisponibles = new ArrayList<Prenda>();
 	private int maximoPrendas;	
+	private String descripcion;
 	private boolean guardarropasCompartido;
 	private int nivelesALlenar = 0;
 	private List<Usuario> usuariosCompartiendo = new ArrayList<Usuario>();
