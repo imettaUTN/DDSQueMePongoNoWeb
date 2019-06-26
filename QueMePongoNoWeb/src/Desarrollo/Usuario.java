@@ -26,7 +26,6 @@ public class Usuario {
 		evento.ProcesarEvento();
 	}
 	
-
 	public boolean agregarPrendaAGuardarropa(Prenda prenda, int guardarropa){
 		
 		return this.getGuardarropas().get(guardarropa).agregarPrenda(prenda);
@@ -47,11 +46,6 @@ public class Usuario {
 		
 	}
 	
-	public void rechazarSugerencia(Sugerencia sugerencia){
-		
-		sugerencia.RechazarSugerencia();
-	}
-		
 	public int cantidadDeGuardarropas() {
 			
 			return this.guardarropas.size();
