@@ -26,9 +26,39 @@ public class TestLeerArchivoJson {
 	}
 	
 	
-	public static List<Prenda> JsonToPrendas() throws IOException {
+	public static List<Prenda> JsonToPrendas(EnumCategoria categoria) throws IOException {
 		
-		String path = "/QueMePongoNoWeb/src/Testing/ArchivosPrueba/JsonPrendas.json";
+		String path;
+		
+		switch(categoria){
+			
+			case Superior:
+			
+				path = "/QueMePongoNoWeb/src/Testing/ArchivosPrueba/jsonParteSuperior.json";
+				break;
+			
+			case Inferior:
+				
+				path = "/QueMePongoNoWeb/src/Testing/ArchivosPrueba/jsonParteIuperior.json";
+				break;
+			
+			case Calzado:
+				
+				path = "/QueMePongoNoWeb/src/Testing/ArchivosPrueba/jsonCalzados.json";
+				break;
+			
+			case Accesorio:
+			
+				path = "/QueMePongoNoWeb/src/Testing/ArchivosPrueba/jsonAccesorios.json";
+				break;
+				
+			default:
+				
+				path = "";
+				
+		}	
+		
+		
 		String json1 = readFile(path);
 		JsonParser parser = new JsonParser();
 		List<Prenda> prendas = new ArrayList<Prenda>();
@@ -44,9 +74,10 @@ public class TestLeerArchivoJson {
 	        Prenda prenda = new Prenda();
 	        prenda.setColorPrimario(gsonObj.get("colorPrimario").getAsString());
 	        prenda.setColorSecundario(gsonObj.get("colorSecundario").getAsString());
-	        prenda.setColorPrimario(gsonObj.get("colorPrimario").getAsString());
-
-            JsonArray telasValidas = gsonObj.get("telasValidas").getAsJsonArray();
+	        
+	        /*
+	        
+	        JsonArray telasValidas = gsonObj.get("telasValidas").getAsJsonArray();
             TipoPrenda tp = new TipoPrenda();
             
             for (JsonElement tl : telasValidas) {
@@ -55,7 +86,10 @@ public class TestLeerArchivoJson {
             
             tp.setNivelAbrigo(gsonObj.get("nivelAbrigo").getAsInt());
             tp.setDescripcion(gsonObj.get("descripcion").getAsString());
-            prenda.setTipoPrenda(tp);
+	        
+	        prenda.setTipoPrenda(tp);
+	        */
+	        
             prenda.setTela(gsonObj.get("tela").getAsString());
             prenda.setCategoria(GetTipoCategoria(gsonObj.get("categoria").getAsString()));
             prenda.setNumeroCapa(gsonObj.get("numeroCapa").getAsInt());
@@ -68,7 +102,7 @@ public class TestLeerArchivoJson {
 
 public static List<Parametros> JsonToParametros() throws IOException {
 
-		String path = "/Testing.ArchivoPrueba/JsonPrendas.json";
+		String path = "";
 		String json1 = readFile(path);
 		JsonParser parser = new JsonParser();
 		List<Parametros> parametros = new ArrayList<Parametros>();
