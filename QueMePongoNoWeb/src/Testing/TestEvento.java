@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import Desarrollo.*;
 import Desarrollo.Enumerados.EnumUsuario;
+import Desarrollo.ObjetosValor.UbicacionEvento;
 
 public class TestEvento {
 Evento evento = new Evento();

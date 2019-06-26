@@ -1,4 +1,4 @@
-package Desarrollo;
+package Desarrollo.ObjetosValor;
 import lombok.Data;
 
 @Data

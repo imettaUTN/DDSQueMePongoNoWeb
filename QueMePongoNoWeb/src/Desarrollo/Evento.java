@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 import Desarrollo.Enumerados.EnumEstadoEvento;
+import Desarrollo.ObjetosValor.UbicacionEvento;
 import lombok.*;
 
 @Data

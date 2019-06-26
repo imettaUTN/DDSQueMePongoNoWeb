@@ -2,6 +2,8 @@ package Desarrollo;
 
 import java.io.IOException;
 
+import Desarrollo.ObjetosValor.Clima;
+
 public class CommandObtenerClima implements IComand {
 
 	@Override

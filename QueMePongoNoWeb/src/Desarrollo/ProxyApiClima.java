@@ -1,5 +1,9 @@
 package Desarrollo;
 import java.util.*;
+
+import Desarrollo.ObjetosValor.Clima;
+import Desarrollo.ObjetosValor.UbicacionEvento;
+
 import java.io.IOException;
 import java.time.*;
 
