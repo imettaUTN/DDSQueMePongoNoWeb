@@ -20,6 +20,7 @@ public class Evento {
 	private Guardarropa guardaropaAsociado;
 	private UbicacionEvento ubicacion;
 	
+	
 	public ServidorColaDeEventos getServidorCola() {
 		return servidorCola;
 	}

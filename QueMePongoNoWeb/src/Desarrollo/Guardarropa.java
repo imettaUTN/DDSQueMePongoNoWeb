@@ -17,7 +17,8 @@ public class Guardarropa {
 	private List<Prenda> parteInferior = new ArrayList<Prenda>();
 	private List<Prenda> accesorios = new ArrayList<Prenda>();
 	private List<Prenda> calzados = new ArrayList<Prenda>();
-		
+	
+	
 	public List<Sugerencia> GenerarSugerencia(int temperaturaMinima, int temperaturaMaxima) throws IOException{
 			
 			return algortimoDeRecomendacion(temperaturaMinima,temperaturaMaxima); 

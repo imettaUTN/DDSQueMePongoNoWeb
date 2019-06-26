@@ -1,5 +1,6 @@
 package Desarrollo;
 import java.io.IOException;
+import Desarrollo.*;
 import java.time.LocalDate;
 import java.util.*;
 import lombok.*;
@@ -53,17 +54,32 @@ public class Usuario {
 		
 	}
 	
-	public void agregarGuardarropa(Guardarropa guardarropa){
-		
-		this.guardarropas.add(guardarropa);
-	}
 	
 	public void eliminarGuardarropa(int guardarropa){
 		
 		this.guardarropas.remove(guardarropa);
 		
 	}
+	
 
+	public void crearGuardarropa(){
+		
+		Guardarropa nuevoGuardarropa = new Guardarropa();
+		
+		if(this.tipoUsuario == EnumUsuario.Premium){
+			
+			nuevoGuardarropa.setMaximoPrendas(-1);
+		
+		}else{
+			
+			nuevoGuardarropa.setMaximoPrendas(50);
+		}
+		
+		this.guardarropas.add(nuevoGuardarropa);
+		
+	}
+	
+	
 	public String getNombre() {
 		return nombre;
 	}

@@ -157,7 +157,8 @@ private static EnumCategoria GetTipoCategoria(String xCategoria){
 		
 		case "Accesorio":
 			return EnumCategoria.Accesorio;
-			default :
+			
+		default :
 			return null;
 		}
 		
