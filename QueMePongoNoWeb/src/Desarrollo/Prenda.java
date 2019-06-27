@@ -1,8 +1,10 @@
 package Desarrollo;
-import Desarrollo.Enumerados.EnumCategoria;
+import Desarrollo.Enumerados.*;
 import lombok.*;
 
 @Data
+@Getter
+@Setter
 public class Prenda {
 
 	private String colorPrimario;
@@ -10,9 +12,15 @@ public class Prenda {
 	private TipoPrenda tipoPrenda;
 	private String tela;
 	private EnumCategoria categoria;
-	private int numeroCapa;
+	private EnumCapa numeroDeCapa;
 	private String urlImagen;
 	private boolean disponibleParaSugerir = true;
+	
+	public void setNumeroCapa(EnumCapa capa){
+		
+		this.numeroDeCapa = capa;
+	}
+	
 	
 	public boolean esInferior(){
 		
@@ -54,10 +62,6 @@ public class Prenda {
 		return categoria;
 	}
 
-	public int getNumeroCapa() {
-		return numeroCapa;
-	}
-
 	public String getUrlImagen() {
 		return urlImagen;
 	}
@@ -84,10 +88,6 @@ public class Prenda {
 
 	public void setCategoria(EnumCategoria categoria) {
 		this.categoria = categoria;
-	}
-
-	public void setNumeroCapa(int numeroCapa) {
-		this.numeroCapa = numeroCapa;
 	}
 
 	public void setUrlImagen(String urlImagen) {

@@ -4,7 +4,7 @@
 		"colorSecundario": "Azul",
 		"tela": "Gabardina",
 		"EnumCategoria": "Superior",
-		"numeroCapa": 1,
+		"numeroDeCapa": "Uno",
 		"urlImagen": "",
 		"disponibleParaSugerir": true
 
@@ -15,7 +15,7 @@
 		"colorSecundario": "Amarillo",
 		"tela": "Gabardina",
 		"EnumCategoria": "Superior",
-		"numeroCapa": 1,
+		"numeroDeCapa": "Uno",
 		"urlImagen": "",
 		"disponibleParaSugerir": true
 
@@ -26,7 +26,7 @@
 		"colorSecundario": "Blanco",
 		"tela": "Gabardina",
 		"EnumCategoria": "Superior",
-		"numeroCapa": 1,
+		"numeroDeCapa": "Uno",
 		"urlImagen": "",
 		"disponibleParaSugerir": true
 
@@ -37,7 +37,7 @@
 		"colorSecundario": "Azul",
 		"tela": "Algodon",
 		"EnumCategoria": "Superior",
-		"numeroCapa": 1,
+		"numeroDeCapa": "Uno",
 		"urlImagen": "",
 		"disponibleParaSugerir": true
 
@@ -48,7 +48,7 @@
 		"colorSecundario": "Amarillo",
 		"tela": "Algodon",
 		"EnumCategoria": "Superior",
-		"numeroCapa": 1,
+		"numeroDeCapa": "Uno",
 		"urlImagen": "",
 		"disponibleParaSugerir": true
 
@@ -59,7 +59,7 @@
 		"colorSecundario": "Blanco",
 		"tela": "Algodon",
 		"EnumCategoria": "Superior",
-		"numeroCapa": 1,
+		"numeroDeCapa": "Uno",
 		"urlImagen": "",
 		"disponibleParaSugerir": true
 
@@ -70,7 +70,7 @@
 		"colorSecundario": "Azul",
 		"tela": "Guata",
 		"EnumCategoria": "Superior",
-		"numeroCapa": 1,
+		"numeroDeCapa": "Uno",
 		"urlImagen": "",
 		"disponibleParaSugerir": true
 
@@ -81,7 +81,7 @@
 		"colorSecundario": "Amarillo",
 		"tela": "Guata",
 		"EnumCategoria": "Superior",
-		"numeroCapa": 1,
+		"numeroDeCapa": "Uno",
 		"urlImagen": "",
 		"disponibleParaSugerir": true
 
@@ -92,7 +92,7 @@
 		"colorSecundario": "Blanco",
 		"tela": "Guata",
 		"EnumCategoria": "Superior",
-		"numeroCapa": 1,
+		"numeroDeCapa": "Uno",
 		"urlImagen": "",
 		"disponibleParaSugerir": true
 
@@ -103,7 +103,7 @@
 		"colorSecundario": "Negro",
 		"tela": "Algodon",
 		"EnumCategoria": "Superior",
-		"numeroCapa": 1,
+		"numeroDeCapa": "Uno",
 		"urlImagen": "",
 		"disponibleParaSugerir": true
 

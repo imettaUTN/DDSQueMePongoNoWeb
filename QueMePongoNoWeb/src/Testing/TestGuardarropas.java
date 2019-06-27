@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.junit.*;
 import Desarrollo.*;
+import Desarrollo.Enumerados.EnumCapa;
 import Desarrollo.Enumerados.EnumCategoria;
 
 public class TestGuardarropas {
@@ -68,7 +69,7 @@ public class TestGuardarropas {
 		prenda.setTela("Modal");
 		
 		prenda.setCategoria(Superior);
-		prenda.setNumeroCapa(1);
+		prenda.setNumeroCapa(EnumCapa.Primera);
 		
 		prenda.setUrlImagen("Nada");
 
@@ -79,7 +80,7 @@ public class TestGuardarropas {
 		prendaDos.setTela("Seda");
 				
 		prendaDos.setCategoria(Superior);
-		prendaDos.setNumeroCapa(1);
+		prendaDos.setNumeroCapa(EnumCapa.Primera);
 		
 		prendaDos.setUrlImagen("Nada");		
 		
@@ -90,7 +91,7 @@ public class TestGuardarropas {
 		prendaTres.setTela("Jean");
 		
 		prendaTres.setCategoria(Superior);
-		prendaTres.setNumeroCapa(1);
+		prendaTres.setNumeroCapa(EnumCapa.Primera);
 		prendaTres.setUrlImagen("Nada");
 		
 		// Prenda Pantalon Uno
@@ -100,7 +101,7 @@ public class TestGuardarropas {
 		prendaCuatro.setTipoPrenda(pantalon);
 		
 		prendaCuatro.setCategoria(Inferior);
-		prendaCuatro.setNumeroCapa(1);
+		prendaCuatro.setNumeroCapa(EnumCapa.Primera);
 			prendaCuatro.setUrlImagen("Vacio");
 		
 		// Prenda Zapatilla Uno
@@ -110,7 +111,7 @@ public class TestGuardarropas {
 		prendaCinco.setTipoPrenda(zapatilla);
 		
 		prendaCinco.setCategoria(Calzado);
-		prendaCinco.setNumeroCapa(1);
+		prendaCinco.setNumeroCapa(EnumCapa.Primera);
 	//	prendaCinco.setDisponibleParaSugerir(true);
 		prendaCinco.setUrlImagen("");
 		
@@ -121,7 +122,7 @@ public class TestGuardarropas {
 		prendaSiete.setTipoPrenda(zapatilla);
 		
 		prendaSiete.setCategoria(Calzado);
-		prendaSiete.setNumeroCapa(2);
+		prendaSiete.setNumeroCapa(EnumCapa.Primera);
 		//prendaSiete.setDisponibleParaSugerir(true);
 		prendaSiete.setUrlImagen("Ejemplo");
 		
@@ -132,7 +133,7 @@ public class TestGuardarropas {
 		prendaSeis.setTipoPrenda(lentes);
 		
 		prendaSeis.setCategoria(Accesorio);
-		prendaSeis.setNumeroCapa(2);
+		prendaSeis.setNumeroCapa(EnumCapa.Primera);
 		//prendaSeis.setDisponibleParaSugerir(true);
 		prendaSeis.setUrlImagen("");
 		

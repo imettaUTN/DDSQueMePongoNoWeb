@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.*;
 import com.google.gson.*;
 import Desarrollo.*;
+import Desarrollo.Enumerados.EnumCapa;
 import Desarrollo.Enumerados.EnumCategoria;
 import Desarrollo.Enumerados.EnumUsuario;
 import Desarrollo.ObjetosValor.Clima;
@@ -95,7 +96,7 @@ public class TestLeerArchivoJson {
 	        
             prenda.setTela(gsonObj.get("tela").getAsString());
             prenda.setCategoria(GetTipoCategoria(gsonObj.get("categoria").getAsString()));
-            prenda.setNumeroCapa(gsonObj.get("numeroCapa").getAsInt());
+            prenda.setNumeroCapa(GetNroCapa(gsonObj.get("numeroDeCapa").getAsString()));
             prenda.setUrlImagen((gsonObj.get("urlImagen").getAsString()));
             prendas.add(prenda);
 	   	}        
@@ -198,7 +199,27 @@ private static EnumCategoria GetTipoCategoria(String xCategoria){
 		default :
 			return null;
 		}
+}
+
+private static EnumCapa GetNroCapa(String xCategoria){
+	
+	switch(xCategoria) {
+	
+	case "Uno":
+		return EnumCapa.Primera;
+	
+	case "Dos":
+		return EnumCapa.Segunda;
+	
+	case "Tres":
+		return EnumCapa.Tercera;
+	
+	case "Cuatro":
+		return EnumCapa.Cuarta;
 		
+	default :
+		return null;
+	}
 }
 	
 private static EnumUsuario GetTipoUsuario(String xUsuario){

@@ -6,7 +6,7 @@
 			"colorSecundario": "Blanco",
 			"tela": "Seda",
 			"EnumCategoria": "Accesorio",
-			"numeroCapa": 1,
+			"numeroDeCapa": "Uno",
 			"urlImagen": "",
 			"disponibleParaSugerir": true
 
@@ -17,7 +17,7 @@
 			"colorSecundario": "Blanco",
 			"tela": "Lino",
 			"EnumCategoria": "Accesorio",
-			"numeroCapa": 1,
+			"numeroDeCapa": "Uno",
 			"urlImagen": "",
 			"disponibleParaSugerir": true
 
@@ -28,7 +28,7 @@
 			"colorSecundario": "Blanco",
 			"tela": "Lino",
 			"EnumCategoria": "Accesorio",
-			"numeroCapa": 1,
+			"numeroDeCapa": "Uno",
 			"urlImagen": "",
 			"disponibleParaSugerir": true
 
@@ -39,7 +39,7 @@
 			"colorSecundario": "Negro",
 			"tela": "Seda",
 			"EnumCategoria": "Accesorio",
-			"numeroCapa": 1,
+			"numeroDeCapa": "Uno",
 			"urlImagen": "",
 			"disponibleParaSugerir": true
 
@@ -50,7 +50,7 @@
 			"colorSecundario": "",
 			"tela": "Seda",
 			"EnumCategoria": "Accesorio",
-			"numeroCapa": 1,
+			"numeroDeCapa": "Uno",
 			"urlImagen": "",
 			"disponibleParaSugerir": true
 

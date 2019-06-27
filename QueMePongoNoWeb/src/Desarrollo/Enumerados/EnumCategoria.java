@@ -1,7 +1,12 @@
 package Desarrollo.Enumerados;
 
 public enum EnumCategoria {
-Superior("Parte del dorso",1),Inferior("Cintura para abajo",2),Calzado("Calzado",3),Accesorio("Accesorio",4);
+
+	
+	Superior("Parte del dorso",1),
+	Inferior("Cintura para abajo",2),
+	Calzado("Calzado",3),
+	Accesorio("Accesorio",4);
 	
 	private String descripcion;
 	private int id;
