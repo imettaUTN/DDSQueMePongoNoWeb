@@ -10,4 +10,15 @@ public class NivelesDeAbrigo {
 	private int temperaturaLimiteInferior;
 	private int temperaturaLimiteSuperior;
 	
+	public int obtenerNivelDeAbrigo(int temperaturaMinima, int temperaturaMaxima){
+		
+		int temperaturaPromedio = (temperaturaMinima + temperaturaMaxima)/2;
+		int nivel = 0;
+		
+		//Funcion para buscar en tabla de parametros;
+		
+		return nivel;
+	
+	}
+	
 }

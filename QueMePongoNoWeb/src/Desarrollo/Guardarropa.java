@@ -165,6 +165,39 @@ public class Guardarropa {
 	public void AddUsuariosCompartiendo(Usuario usuarioCompartiendo) {
 		this.usuariosCompartiendo.add(usuarioCompartiendo);
 	}
+	
+	public void generarSugerencias(int nivelDeAbrigo){
+		
+		List<Sugerencia> sugerencias = new ArrayList<Sugerencia>();
+		List<Prenda> parteSuperior = (List<Prenda>) this.prendasDisponibles.stream().filter(p->p.esSuperior() && p.esNivelDeAbrigo(nivelDeAbrigo));
+		List<Prenda> parteInferior = (List<Prenda>) this.prendasDisponibles.stream().filter(p->p.esInferior() && p.esNivelDeAbrigo(nivelDeAbrigo));
+		List<Prenda> calzados = (List<Prenda>) this.prendasDisponibles.stream().filter(p->p.esCalzado() && p.esNivelDeAbrigo(nivelDeAbrigo));
+		List<Prenda> accesorios = (List<Prenda>) this.prendasDisponibles.stream().filter(p->p.esAccesorio() && p.esNivelDeAbrigo(nivelDeAbrigo));
+		
+		
+		for(Prenda prendaSuperior: parteSuperior){
+			
+			Sugerencia sugerencia = new Sugerencia();
+			sugerencia.agregarPrendaSeleccionada(prendaSuperior);
+			
+				for(Prenda prendaInferior:parteInferior){
+					
+					sugerencia.agregarPrendaSeleccionada(prendaInferior);
+	
+						for(Prenda calzado:calzados){
+							
+							sugerencia.agregarPrendaSeleccionada(calzado);
+								
+								for(Prenda accesorio:accesorios){
+									
+									sugerencia.agregarPrendaSeleccionada(accesorio);
+									sugerencias.add(sugerencia);
+									
+								}
+						}
+				}
+		}
+	}
 
 	
 	

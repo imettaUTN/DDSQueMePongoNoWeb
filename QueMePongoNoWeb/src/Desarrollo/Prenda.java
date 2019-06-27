@@ -15,10 +15,21 @@ public class Prenda {
 	private EnumCapa numeroDeCapa;
 	private String urlImagen;
 	private boolean disponibleParaSugerir = true;
+	private int nivelDeAbrigo;
+	
+	public boolean esNivelDeAbrigo(int nivel){
+		
+		return (nivel == this.nivelDeAbrigo);
+	}
 	
 	public void setNumeroCapa(EnumCapa capa){
 		
 		this.numeroDeCapa = capa;
+	}
+	
+	public EnumCapa getNumeroCapa(){
+		
+		return this.numeroDeCapa;
 	}
 	
 	
