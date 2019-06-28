@@ -15,7 +15,7 @@ public class Guardarropa {
 	private int maximoPrendas;	
 	private String descripcion;
 	private boolean guardarropasCompartido;
-	private int nivelesALlenar = 0;
+	private int cantidadCapasASuperponer = 0;
 	private List<Usuario> usuariosCompartiendo = new ArrayList<Usuario>();
 	
 
@@ -51,21 +51,51 @@ public class Guardarropa {
 		List<Prenda> calzados = (List<Prenda>) this.prendasDisponibles.stream().filter(p->p.esCalzado());
 		List<Prenda> accesorios = (List<Prenda>) this.prendasDisponibles.stream().filter(p->p.esAccesorio());
 		
+		//Parte superior
+		// cantidadCapasASuperponer = Buscar cantidad de capas a cubrir
+		// For :
+		// Buscar el primer elemento de la lista de parteSuperior cuyo nivel de abrigo sea = a la cantidad de capas a llenar y este disponible
+		// agregar prenda a la lista de sugerencia
+		// setear prenda como no disponible para que no la vueva a elegir
+		
+		//Parte inferior
+
+		// cantidadCapasASuperponer = Buscar cantidad de capas a cubrir
+				// For :
+				// Buscar el primer elemento de la lista de parteSuperior cuyo nivel de abrigo sea = a la cantidad de capas a llenar y este disponible
+				// agregar prenda a la lista de sugerencia
+				// setear prenda como no disponible para que no la vueva a elegir 
+				
+		
+		// 2 funciones para procesar las lista de suegerencia
+		//1) dada dose listas, devuelve una lista de sugerencia con la combinacion de ambas ( no tiene en cuenta el color entre capas)
+		//2) dada la lista de sugerencia anterior (nivel superior) , le mando como segundo parametro la lista parte inferior filtrada para el nivel de capa. 
+		//internamente va a evaluar que la combinacion de colores tenga sentido (usar funcion) y en  caso que para una sugerencias de la parte sup no pueda ser
+		//combinada con la prenda de la parte inferior, eliminar sugerencia de la lista ( lista global al metodo).
+		
+		// una vez procesada todas las categorias de la prendas, deberiamos tener una lista con las sugerencias que se lograron combinar  y de esas elegir 4 para devolver al usuario.
 		
 		for(Prenda prendaSuperior:parteSuperior){
-			if(nivelesALlenar == 0) {
-			nivelesALlenar = GetNivelAbrigoByCategoria(EnumCategoria.Superior,temperaturaMinima,temperaturaMaxima);}
+			if(cantidadCapasASuperponer == 0) {
+				//PARA CADA CATEGORIA SE OBTIENE EL NIVEL DE ABRIGO QUE SE TIENE QUE LOGRAR
+				//EJ: PARTE SUPERIOR TIENE QUE LOGRARSE UN NIVEL 3
+			cantidadCapasASuperponer = GetNivelAbrigoByCategoria(EnumCategoria.Superior,temperaturaMinima,temperaturaMaxima);}
 			Sugerencia sugerencia = new Sugerencia();
+			
+			//filtrar por el nivel de capa de la prenda
+			
+			
 			sugerencia.agregarPrendaSeleccionada(prendaSuperior);
-			nivelesALlenar --;
-			if(nivelesALlenar <= 0) {
+			
+			cantidadCapasASuperponer --;
+			if(cantidadCapasASuperponer <= 0) {
 				
 				for(Prenda prendaInferior:parteInferior){
-					if(nivelesALlenar == 0) {
-						nivelesALlenar = GetNivelAbrigoByCategoria(EnumCategoria.Inferior,temperaturaMinima,temperaturaMaxima);}
+					if(cantidadCapasASuperponer == 0) {
+						cantidadCapasASuperponer = GetNivelAbrigoByCategoria(EnumCategoria.Inferior,temperaturaMinima,temperaturaMaxima);}
 					sugerencia.agregarPrendaSeleccionada(prendaInferior);
-					nivelesALlenar --;
-					if(nivelesALlenar <= 0) {
+					cantidadCapasASuperponer --;
+					if(cantidadCapasASuperponer <= 0) {
 							if((EsColorCombinable(prendaSuperior.getColorPrimario(), prendaInferior.getColorSecundario())) &&
 									(EsColorCombinable(prendaInferior.getColorPrimario(), prendaSuperior.getColorSecundario())))
 							{									

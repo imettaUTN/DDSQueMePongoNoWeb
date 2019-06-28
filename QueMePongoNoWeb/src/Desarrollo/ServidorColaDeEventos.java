@@ -1,45 +1,34 @@
 package Desarrollo;
-
 import java.io.IOException;
-import java.util.*;
+import java.util.*
 public class ServidorColaDeEventos {
 
-		private List<Evento> colaEventosNuevos;
-		private List<Evento> colaEventosActivos;
+		private Queue<Evento> colaEventosNuevos;
+		private Queue<Evento> colaEventosActivos;
 		private Evento cabeceraColaEventosNuevos;
 		private Evento cabeceraColaEventosActivos;
 		private InvokerGestorEvento invoker;
 		
 		public ServidorColaDeEventos() {
-			this.colaEventosNuevos= new ArrayList<Evento>();
-			this.colaEventosActivos= new ArrayList<Evento>();
+			this.colaEventosNuevos= new LinkedList<Evento>();
+			this.colaEventosActivos= new LinkedList<Evento>();
 		}
 		
 		
-		public List<Evento> getColaEventosNuevos() {
+		public Queue<Evento> getColaEventosNuevos() {
 			return colaEventosNuevos;
 		}
-		
-		public void setColaEventosNuevos(List<Evento> colaEventosNuevos) {
-			this.colaEventosNuevos = colaEventosNuevos;
-		}
-		
-		public List<Evento> getColaEventosActivos() {
+				
+		public Queue<Evento> getColaEventosActivos() {
 			return colaEventosActivos;
 		}
 		
-		public void setColaEventosActivos(List<Evento> colaEventosActivos) {
-			this.colaEventosActivos = colaEventosActivos;
-		}
 		
-		public void EncolarEvento(Evento evento, List<Evento> cola) {
+		public void EncolarEvento(Evento evento, Queue<Evento> cola) {
 			cola.add(evento);
 		}
 		
 		
-		public void DesEncolarEvento(Evento evento, List<Evento> cola) {
-			cola.remove(evento);
-		}
 		
 		
 		public void EncolarNuevoEvento(Evento evento) {
@@ -50,7 +39,6 @@ public class ServidorColaDeEventos {
 			//aca va la magia de procesamiento de la cola
 			// ver de usar algun framwwork que haga esto
 			Evento eventoProcesado = this.getCabeceraColaEventosNuevos();
-			DesEncolarEvento(eventoProcesado, this.getColaEventosNuevos());
 			invoker.ProcesarEvento(eventoProcesado);
 			EncolarEvento(eventoProcesado, this.colaEventosActivos);
 			return eventoProcesado.getSugerencias();
@@ -58,7 +46,7 @@ public class ServidorColaDeEventos {
 		
 		
 		public Evento getCabeceraColaEventosNuevos() {
-			return cabeceraColaEventosNuevos;
+			return  this.colaEventosNuevos.poll();
 		}
 		
 		public void setCabeceraColaEventosNuevos(Evento cabeceraColaEventosNuevos) {
@@ -66,7 +54,7 @@ public class ServidorColaDeEventos {
 		}
 		
 		public Evento getCabeceraColaEventosActivos() {
-			return cabeceraColaEventosActivos;
+			return this.colaEventosActivos.poll();
 		}
 		
 		public void setCabeceraColaEventosActivos(Evento cabeceraColaEventosActivos) {
